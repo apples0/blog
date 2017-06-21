@@ -6,10 +6,6 @@ categories: bitcoin
 comments: true
 ---
 
-{% if page.comments %}
-{% include disqus.html %}                     
-{% endif %}
-
 :man-digging: UNDER CONSTRUCTION :man-digging:
 
 ## 1. obtain secure offline environment
@@ -119,6 +115,11 @@ print_hi('Tom')
 {% endhighlight %}
 
 \[1\] [https://glacierprotocol.org][https://glacierprotocol.org]
+
+
+{% if page.comments %}
+{% include disqus.html %}                     
+{% endif %}
 
 [glacier]: https://github.com/apples0/blog/blob/master/Glacier.pdf
 [dell]: https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&ie=UTF8&qid=1471767727&sr=1-14&keywords=inspiron&refinements=p_85%3A2470955011
