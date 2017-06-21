@@ -84,15 +84,15 @@ print_hi('Tom')
 
 \[1\] [https://glacierprotocol.org][https://glacierprotocol.org]
 
-[glacier]: https://github.com/apples0/blog/raw/master/Glacier.pdf
+[glacier]: https://github.com/apples0/blog/blob/master/Glacier.pdf
 [dell]: https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&ie=UTF8&qid=1471767727&sr=1-14&keywords=inspiron&refinements=p_85%3A2470955011
 [usb]: https://www.amazon.com/SanDisk-Cruzer-Frustration-Free-Packaging-SDCZ36-008G-AFFP2/dp/B00E9W1UKY/ref=sr_1_7?ie=UTF8&qid=1485220606&sr=8-7&keywords=2GB+USB+drive
 [dice]: https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&qid=1473894884&sr=8-1&keywords=casino+dice
 [screwdriver]: https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&ie=UTF8&qid=1476232469&sr=1-2&keywords=%2300+screwdriver
 [video]: https://www.youtube.com/watch?v=nFYXQQPoh90
 [video2]: https://www.youtube.com/watch?v=nFYXQQPoh90
-[manual]: 
+[manual]: https://github.com/apples0/blog/blob/master/dell_manual.pdf
 [ubuntu]: http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso
 [reddit]: https://www.reddit.com/r/crypto/comments/684zvj/need_help_generating_lastword_checksum_for_bip39/dgvq3ca/
-[script]: 
+[script]: https://github.com/apples0/blog/blob/master/findlastword.py
 [SHA256SUMS]: http://releases.ubuntu.com/xenial/SHA256SUMS
