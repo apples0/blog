@@ -52,7 +52,11 @@ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
 ## 2. flip that coin, roll some dice
 
 
-## 3. think of a password and generate your wallet
+## 3. find the 24th word
+
+In order to satisfy the BIP39 checksum, we must choose a suitable last word. We have a simple [script][script] to accomplish this, thanks to Morveus in [this reddit thread][reddit].
+
+## 4. think of a password and generate your wallet
 
 
 Notes:
@@ -85,3 +89,5 @@ print_hi('Tom')
 [video2]: https://www.youtube.com/watch?v=nFYXQQPoh90
 [manual]: 
 [ubuntu]: http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso
+[reddit]: https://www.reddit.com/r/crypto/comments/684zvj/need_help_generating_lastword_checksum_for_bip39/dgvq3ca/
+[script]: 
