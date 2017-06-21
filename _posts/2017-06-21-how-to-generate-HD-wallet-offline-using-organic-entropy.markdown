@@ -8,7 +8,7 @@ categories: bitcoin
 
 step 1. obtain secure offline environment
 
-Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that document to obtain a computer without any way to access the internet.
+Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][Glacier.pdf] to obtain a computer without any way to access the internet. This just means buying a netbook with at least 2 usb ports and then physically removing the wireless/bluetooth chip.
 
 
 step 2. flip some coin, roll some dice
@@ -38,7 +38,7 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-\[1\] https://glacierprotocol.org
+\[1\] [https://glacierprotocol.org][https://glacierprotocol.org]
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
