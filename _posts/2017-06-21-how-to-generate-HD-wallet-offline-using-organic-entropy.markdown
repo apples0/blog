@@ -9,7 +9,7 @@ categories: bitcoin
 
 ## 1. obtain secure offline environment
 
-Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][glacier] to obtain a computer without any way to access the internet. They recommend using two sets of hardware in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline.
+In order to accomplish this, I followed the Setup section of the [glacier protocol][glacier] \[1\]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline.
 
 # a. get the required equipment
 
@@ -24,7 +24,7 @@ Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [d
 
 # b. label your drives
 
-- using masking tape and a marker, label the usb drives as "setup", "boot" and "apps
+- using the masking tape and marker, label the usb drives as "setup", "boot" and "apps"
 
 # c. remove the netbook's wireless card
 
@@ -37,16 +37,47 @@ After removing the card, use the electrical tape to wrap up the exposed terminal
 
 # d. create the "setup" drive
 
-This step assumes that you're using a macbook, if that's not the case then take a look at the Setup Protocol in the [glacier protocol][glacier].
+This step assumes that you're using a macbook, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier].
 
-- plug the "setup" usb drive into your regular computer
 - download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] (*)
 - verify its integrity
 
-`$ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso`
+{% highlight bash %}
+$ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
+0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso
+{% endhighlight %}
 
-This should match `0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e` or if it's been updated to a new version, then it should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
+The output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
 
+- convert the iso to dmg format
+
+{% highlight bash %}
+$ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.2-desktop-amd64.img
+{% endhighlight %}
+
+- determine the macOS device identifier for the boot USB
+
+`$ diskutil list`
+
+- plug the "setup" usb drive into your regular computer
+
+`$ diskutil list `
+
+You should now see your usb listed as an additional drive that wasn't there before. The device identifier ​is the part that comes before `(external, physical)` ​(for example `/dev/disk2`) ​
+
+- unmount the usb
+
+`$ diskutil unmountDisk ​USB-device-identifier-here`
+
+
+
+- copy dmg to usb drive (make sure to use the correct device identifier!! Using the wrong one could overwrite your hard drive)
+
+`$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m`
+
+if = input file
+of = output file
+bs = block size
 
 
 (*) note the the glacier document shows this as 16.04.1, when I did it this version was not available
