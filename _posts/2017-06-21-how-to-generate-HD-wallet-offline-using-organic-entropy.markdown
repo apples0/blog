@@ -5,6 +5,8 @@ date:   2017-06-21
 categories: bitcoin
 ---
 
+:man-digging: UNDER CONSTRUCTION :man-digging:
+
 ## 1. obtain secure offline environment
 
 Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][glacier] to obtain a computer without any way to access the internet. They recommend using two sets of hardware in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline.
@@ -12,10 +14,11 @@ Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [d
 # a. get the required equipment
 
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
-- 3 usb drives ([I used these][usb])
+- 3 usb drives, at least 2GB ([I used these][usb])
 - dice (4 dies) ([like these][dice])
 - coin
 - small screwdriver [like this one][screwdriver]
+- electrical tape
 - masking tape
 - marker
 
@@ -30,7 +33,7 @@ For this step you will need to take your small screwdriver and open up the netbo
 - [video][video] (if link is down then check [here][video2])
 - [manual][manual] look at the "Removing the wireless card" section
 
-You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
+After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
 # d. create the "setup" drive
 
@@ -40,9 +43,10 @@ This step assumes that you're using a macbook, if that's not the case then take 
 - download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] (*)
 - verify its integrity
 
-shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
+`$ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso`
 
-- 
+This should match `0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e` or if it's been updated to a new version, then it should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
+
 
 
 (*) note the the glacier document shows this as 16.04.1, when I did it this version was not available
@@ -91,3 +95,4 @@ print_hi('Tom')
 [ubuntu]: http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso
 [reddit]: https://www.reddit.com/r/crypto/comments/684zvj/need_help_generating_lastword_checksum_for_bip39/dgvq3ca/
 [script]: 
+[SHA256SUMS]: http://releases.ubuntu.com/xenial/SHA256SUMS
