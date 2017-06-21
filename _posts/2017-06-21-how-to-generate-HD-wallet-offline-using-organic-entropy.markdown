@@ -5,27 +5,27 @@ date:   2017-06-21
 categories: bitcoin
 ---
 
-step 1. obtain secure offline environment
+# step 1. obtain secure offline environment
 
-Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][glacier] to obtain a computer without any way to access the internet. They recommend using two sets of hardware for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. I recommend the following:
+Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][glacier] to obtain a computer without any way to access the internet. They recommend using two sets of hardware in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. I recommend the following:
 
-netbook - [2016 Dell Inspiron 11.6"][dell]
-usb drives - [3x SanDisk Cruzer 8GB][usb]
-dice - [red dice][dice] (note that blue or green dice will NOT work)
-small screwdriver - [like this one][screwdriver]
-
-
-
+netbook - [2016 Dell Inspiron 11.6"][dell]\s\s
+usb drives - [3x SanDisk Cruzer 8GB][usb]\s\s
+dice - [red dice][dice] (note that blue or green dice will NOT work)\s\s
+coin - I used quarter (note that Canadian quarter WILL NOT WORK)\s\s
+small screwdriver - [like this one][screwdriver]\s\s
 
 
-
-This just means buying a 2netbook with at least 2 usb ports and then physically removing the wireless/bluetooth chip.
-
-
-step 2. flip that coin, roll some dice
+## a. label your drives
 
 
-step 3. think of a password and generate your wallet
+
+
+
+# step 2. flip that coin, roll some dice
+
+
+# step 3. think of a password and generate your wallet
 
 
 Notes:
