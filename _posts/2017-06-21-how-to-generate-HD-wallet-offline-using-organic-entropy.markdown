@@ -16,8 +16,8 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
 - 3 usb drives, at least 2GB ([I used these][usb])
-- dice (4 dies) ([like these][dice])
 - coin
+- dice (4 dies) (buy the [red ones][dice], note that the purple ones will NOT work)
 - small screwdriver [like this one][screwdriver]
 - electrical tape
 - masking tape
@@ -43,18 +43,14 @@ This step assumes that you're using a macbook, if that's not the case then take 
 - download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] (*)
 - verify its integrity
 
-{% highlight bash %}
-$ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
-0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso
-{% endhighlight %}
+`$ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso`
+`0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso`
 
 The output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
 
 - convert the iso to dmg format
 
-{% highlight bash %}
-$ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.2-desktop-amd64.img
-{% endhighlight %}
+`$ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.2-desktop-amd64.img`
 
 - determine the macOS device identifier for the boot USB
 
