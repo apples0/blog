@@ -8,7 +8,7 @@ categories: bitcoin
 
 step 1. obtain secure offline environment
 
-Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][https://github.com/apples0/blog/blob/master/Glacier.pdf] to obtain a computer without any way to access the internet. This just means buying a netbook with at least 2 usb ports and then physically removing the wireless/bluetooth chip.
+Inspired by the glacier protocol \[1\], I followed the Setup Protocol in that [document][glacier] to obtain a computer without any way to access the internet. This just means buying a netbook with at least 2 usb ports and then physically removing the wireless/bluetooth chip.
 
 
 step 2. flip some coin, roll some dice
@@ -43,3 +43,4 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
+[glacier]: https://github.com/apples0/blog/blob/master/Glacier.pdf
