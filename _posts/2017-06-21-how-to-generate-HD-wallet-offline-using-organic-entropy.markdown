@@ -3,7 +3,12 @@ layout: post
 title:  "how to generate HD wallet offline using organic entropy"
 date:   2017-06-21
 categories: bitcoin
+comments: true
 ---
+
+{% if page.comments %}
+{% include disqus.html %}                     
+{% endif %}
 
 :man-digging: UNDER CONSTRUCTION :man-digging:
 
@@ -69,7 +74,7 @@ You should now see your usb listed as an additional drive that wasn't there befo
 
 `$ diskutil unmountDisk ​USB-device-identifier-here`
 
-
+​USB-device-identifier-here will be something like `/dev/disk2`
 
 - copy dmg to usb drive (make sure to use the correct device identifier!! Using the wrong one could overwrite your hard drive)
 
