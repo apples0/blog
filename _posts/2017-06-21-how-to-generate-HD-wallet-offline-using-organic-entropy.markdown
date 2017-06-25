@@ -27,9 +27,9 @@ Using the masking tape and marker, label the usb drives as "live", "offline boot
 
 ### c. remove the netbook's wireless card
 
-For this step you will need to take your small screwdriver and open up the netbook, if you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
+For this step you will need to take your small screwdriver and open up the netbook. If you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
 
-\- [video][video] (if link is down then check [here][video2])
+\- [video][video] (if link is down then check [here][video2])  
 \- [manual][manual] look at the "Removing the wireless card" section
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
@@ -430,7 +430,7 @@ You might also want to transfer your existing bitcoin to your new wallet increme
 [dice]: https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&qid=1473894884&sr=8-1&keywords=casino+dice
 [screwdriver]: https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&ie=UTF8&qid=1476232469&sr=1-2&keywords=%2300+screwdriver
 [video]: https://www.youtube.com/watch?v=nFYXQQPoh90
-[video2]: https://www.youtube.com/watch?v=nFYXQQPoh90
+[video2]: https://github.com/apples0/blog/raw/master/removing_wireless_card_nFYXQQPoh90.mp4
 [manual]: https://github.com/apples0/blog/blob/master/dell_manual.pdf
 [ubuntu]: http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso
 [reddit]: https://www.reddit.com/r/crypto/comments/684zvj/need_help_generating_lastword_checksum_for_bip39/dgvq3ca/
