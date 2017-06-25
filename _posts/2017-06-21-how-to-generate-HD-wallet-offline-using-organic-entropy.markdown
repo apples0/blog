@@ -212,37 +212,27 @@ you should now have the folders `apps`, `electrum`, `bip39` and the file findlas
 
 ## i. boot offline computer
 
-\- plug in the "offline boot" into your offline computer
-
-\- power it on and repeatedly press F2 until you enter BIOS setup
-
-\- in the BIOS, disable "Fast Boot" and "Secure Boot"
-
-\- click "File Browser Add Boot Option"
-
-\- click on the USB drive and keep drilling down until you see "grubx64.efi" and the click on it
-
-\- now disable the "Windows Boot Manager" option
-
-\- click F10 to save and exit
+\- plug in the "offline boot" into your offline computer  
+\- power it on and repeatedly press F2 until you enter BIOS setup  
+\- in the BIOS, disable "Fast Boot" and "Secure Boot"  
+\- click "File Browser Add Boot Option"  
+\- click on the USB drive and keep drilling down until you see "grubx64.efi" and the click on it  
+\- now disable the "Windows Boot Manager" option  
+\- click F10 to save and exit  
 
 You should now boot into the grub menu, in order for the dell to boot you have to adjust the boot commands.
 
-\- press "e" to edit the boot commands
-
-\- delete "quiet splash"
-
-\- in its place, add "nomodeset=0"
-
-\- click F10 to save and boot
+\- press "e" to edit the boot commands  
+\- delete "quiet splash"  
+\- in its place, add "nomodeset=0"  
+\- click F10 to save and boot  
 
 You should now successfully boot into the Ubuntu system. If the above steps don't work for you then just use google and play around with the BIOS settings until it works.
 
 ## j. install apps
 
-\- plug in "offline apps" drive
-
-\- copy everything on the drive to your home folder
+\- plug in "offline apps" drive  
+\- copy everything on the drive to your home folder  
 
 ** install the apt-get packages **
 
@@ -369,10 +359,9 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 \- copy apps and electrum folders to home directory  
 \- install apps and electrum as in the [install apps](#install-apps) section  
 
-
 ### c. transfer master public key to online computer
 
-on the online computer:
+*on the online computer:*
 
 \- open Electrum  
 \- Standard Wallet -> Use public or private keys  
@@ -380,8 +369,7 @@ on the online computer:
     
 The camera should appear, now you're ready to receive the master public key as a QR code.
  
-    
-on the offline computer:
+*on the offline computer:*
 
 \- open Electrum  
 \- Standard Wallet -> I already have a seed  
@@ -389,7 +377,6 @@ on the offline computer:
 \- Click the QR code icon  
 
 Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a "watching wallet" on your online computer.
-
 
 ### d. create unsigned transaction on the online computer
 
@@ -399,7 +386,7 @@ Now maximize the dialog to make the QR code take up the whole screen and then ho
 
 ### e. transfer unsigned transaction to offline computer
 
-on the offline computer:
+*on the offline computer:*
 
 \- Tools -> Load Transaction -> From QR code  
     
@@ -414,7 +401,7 @@ Now hold your offline computer camera to the online computer screen and read the
 
 \- after hitting the Sign button, click the QR code icon and maximize it  
 
-on the online computer:
+*on the online computer:*
 
 \- Tools -> Load Transaction -> From QR code
 
