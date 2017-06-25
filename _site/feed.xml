@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-25T04:05:36+00:00</updated><id>http://localhost:4000/</id><title type="html">apples0</title><subtitle>apples0
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-25T04:43:06+00:00</updated><id>http://localhost:4000/</id><title type="html">apples0</title><subtitle>apples0
 </subtitle><entry><title type="html">how to generate HD wallet offline using organic entropy</title><link href="http://localhost:4000/bitcoin/2017/06/21/how-to-generate-HD-wallet-offline-using-organic-entropy.html" rel="alternate" type="text/html" title="how to generate HD wallet offline using organic entropy" /><published>2017-06-21T00:00:00+00:00</published><updated>2017-06-21T00:00:00+00:00</updated><id>http://localhost:4000/bitcoin/2017/06/21/how-to-generate-HD-wallet-offline-using-organic-entropy</id><content type="html" xml:base="http://localhost:4000/bitcoin/2017/06/21/how-to-generate-HD-wallet-offline-using-organic-entropy.html">&lt;h2 id=&quot;1-obtain-secure-offline-environment&quot;&gt;1. obtain secure offline environment&lt;/h2&gt;
 
 &lt;p&gt;In order to accomplish this, I followed the Setup section of the &lt;a href=&quot;https://glacierprotocol.org&quot;&gt;glacier protocol&lt;/a&gt;. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we’re not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated.&lt;/p&gt;
@@ -9,8 +9,8 @@
   &lt;li&gt;netbook with at least 2 usb ports, no ethernet (&lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;amp;ie=UTF8&amp;amp;qid=1471767727&amp;amp;sr=1-14&amp;amp;keywords=inspiron&amp;amp;refinements=p_85%3A2470955011&quot;&gt;I recommend this one&lt;/a&gt;)&lt;/li&gt;
   &lt;li&gt;3 usb drives, at least 2GB (&lt;a href=&quot;https://www.amazon.com/SanDisk-Cruzer-Frustration-Free-Packaging-SDCZ36-008G-AFFP2/dp/B00E9W1UKY/ref=sr_1_7?ie=UTF8&amp;amp;qid=1485220606&amp;amp;sr=8-7&amp;amp;keywords=2GB+USB+drive&quot;&gt;I used these ones (8GB)&lt;/a&gt;)&lt;/li&gt;
   &lt;li&gt;coin&lt;/li&gt;
-  &lt;li&gt;dice (4 dies) (buy the &lt;a href=&quot;https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&amp;amp;qid=1473894884&amp;amp;sr=8-1&amp;amp;keywords=casino+dice&quot;&gt;red ones&lt;/a&gt;, note that the purple ones will NOT work)&lt;/li&gt;
-  &lt;li&gt;small screwdriver &lt;a href=&quot;https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&amp;amp;ie=UTF8&amp;amp;qid=1476232469&amp;amp;sr=1-2&amp;amp;keywords=%2300+screwdriver&quot;&gt;like this one&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;dice (4 dies), (buy the &lt;a href=&quot;https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&amp;amp;qid=1473894884&amp;amp;sr=8-1&amp;amp;keywords=casino+dice&quot;&gt;red ones&lt;/a&gt;, note that the purple ones will NOT work)&lt;/li&gt;
+  &lt;li&gt;small screwdriver &lt;a href=&quot;https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&amp;amp;ie=UTF8&amp;amp;qid=1476232469&amp;amp;sr=1-2&amp;amp;keywords=%2300+screwdriver&quot;&gt;(one of these should work)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;electrical tape&lt;/li&gt;
   &lt;li&gt;masking tape&lt;/li&gt;
   &lt;li&gt;marker&lt;/li&gt;
@@ -18,14 +18,14 @@
 
 &lt;h3 id=&quot;b-label-your-drives&quot;&gt;b. label your drives&lt;/h3&gt;
 
-&lt;p&gt;Using the masking tape and marker, label the usb drives as “live”, “offline boot” and “offline apps”. In the glacier protocol the “live” drive is called the SETUP drive because that’s all they use it for but we’re going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.&lt;/p&gt;
+&lt;p&gt;Using the masking tape and marker, label the usb drives as “live”, “offline boot” and “offline apps”. In the glacier protocol the “live” drive is named SETUP because that’s all they ever use it for but we’re going to be using this drive again and again, in order to communicate with our offline machine (via QR codes) and broadcast transactions to the network.&lt;/p&gt;
 
 &lt;h3 id=&quot;c-remove-the-netbooks-wireless-card&quot;&gt;c. remove the netbook’s wireless card&lt;/h3&gt;
 
-&lt;p&gt;For this step you will need to take your small screwdriver and open up the netbook, if you’re using the recommended dell netbook (&lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;amp;ie=UTF8&amp;amp;qid=1471767727&amp;amp;sr=1-14&amp;amp;keywords=inspiron&amp;amp;refinements=p_85%3A2470955011&quot;&gt;2016 Dell Inspiron 11.6”&lt;/a&gt;) then you can check out the following resources on how to do this:&lt;/p&gt;
+&lt;p&gt;For this step you will need to take your small screwdriver and open up the netbook. If you’re using the recommended dell netbook (&lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;amp;ie=UTF8&amp;amp;qid=1471767727&amp;amp;sr=1-14&amp;amp;keywords=inspiron&amp;amp;refinements=p_85%3A2470955011&quot;&gt;2016 Dell Inspiron 11.6”&lt;/a&gt;) then you can check out the following resources on how to do this:&lt;/p&gt;
 
-&lt;p&gt;- &lt;a href=&quot;https://www.youtube.com/watch?v=nFYXQQPoh90&quot;&gt;video&lt;/a&gt; (if link is down then check &lt;a href=&quot;https://www.youtube.com/watch?v=nFYXQQPoh90&quot;&gt;here&lt;/a&gt;)
-- &lt;a href=&quot;https://github.com/apples0/blog/blob/master/dell_manual.pdf&quot;&gt;manual&lt;/a&gt; look at the “Removing the wireless card” section&lt;/p&gt;
+&lt;p&gt;- &lt;a href=&quot;https://www.youtube.com/watch?v=nFYXQQPoh90&quot;&gt;video&lt;/a&gt; (if link is down then check &lt;a href=&quot;https://github.com/apples0/blog/raw/master/removing_wireless_card_nFYXQQPoh90.mp4&quot;&gt;here&lt;/a&gt;)&lt;br /&gt;
+- &lt;a href=&quot;https://github.com/apples0/blog/blob/master/dell_manual.pdf&quot;&gt;manual&lt;/a&gt; (look at the “Removing the wireless card” section)&lt;/p&gt;
 
 &lt;p&gt;After removing the card, use the electrical tape to wrap up the exposed terminal leads. You’ll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.&lt;/p&gt;
 
@@ -33,12 +33,8 @@
 
 &lt;p&gt;This step assumes that you’re using a macbook for your regular computer, if that’s not the case then take a look at the Setup section of the &lt;a href=&quot;https://github.com/apples0/blog/blob/master/Glacier.pdf&quot;&gt;glacier protocol&lt;/a&gt; to learn how to do this.&lt;/p&gt;
 
-&lt;p&gt;- download ubuntu &lt;a href=&quot;http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso&quot;&gt;http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso&lt;/a&gt; *
+&lt;p&gt;- download ubuntu &lt;a href=&quot;http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso&quot;&gt;http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso&lt;/a&gt; *&lt;br /&gt;
 - verify its integrity&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
 0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -63,19 +59,21 @@
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ diskutil unmountDisk ​USB-device-identifier-here&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;​USB-device-identifier-here&lt;/code&gt; will be something like &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/disk2&lt;/code&gt;, it should be the last one but make sure to check&lt;/p&gt;
+&lt;p&gt;“​USB-device-identifier-here” will be something like &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/disk2&lt;/code&gt;, it should be the last one but make sure to check&lt;/p&gt;
 
 &lt;p&gt;- copy dmg to usb drive (&lt;strong&gt;make sure to use the correct device identifier!!&lt;/strong&gt; &lt;em&gt;Using the wrong identifier could overwrite your hard drive&lt;/em&gt;)&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;if = input file
-of = output file
+&lt;p&gt;if = input file&lt;br /&gt;
+of = output file&lt;br /&gt;
 bs = block size&lt;/p&gt;
 
 &lt;p&gt;- click Ignore button&lt;/p&gt;
 
 &lt;p&gt;After the process has completed you’ll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn’t recognize it)&lt;/p&gt;
+
+&lt;p&gt;* Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!&lt;/p&gt;
 
 &lt;h3 id=&quot;e-boot-into-the-live-system&quot;&gt;e. boot into the live system&lt;/h3&gt;
 
@@ -97,13 +95,13 @@ bs = block size&lt;/p&gt;
 
 &lt;p&gt;Again, the output should match what’s listed in &lt;a href=&quot;http://releases.ubuntu.com/xenial/SHA256SUMS&quot;&gt;http://releases.ubuntu.com/xenial/SHA256SUMS&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen
-- type “startup disk”
-- click on Startup Disk Creator icon
-- The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.
-- Check out the “Disk to use” field, you’re going to see your usb drive show up in there
-- plug in the “offline boot” usb drive
-- select the “offline boot” drive in the “Disk to use” field
+&lt;p&gt;- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen&lt;br /&gt;
+- type “startup disk”&lt;br /&gt;
+- click on Startup Disk Creator icon&lt;br /&gt;
+- The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.&lt;br /&gt;
+- Check out the “Disk to use” field, you’re going to see your usb drive show up in there&lt;br /&gt;
+- plug in the “offline boot” usb drive&lt;br /&gt;
+- select the “offline boot” drive in the “Disk to use” field&lt;br /&gt;
 - click “Make Startup Disk”&lt;/p&gt;
 
 &lt;h3 id=&quot;h-create-the-offline-apps-drive&quot;&gt;h. create the “offline apps” drive&lt;/h3&gt;
@@ -123,10 +121,10 @@ bs = block size&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;qrencode - used to encode QR codes into text&lt;br /&gt;
-zbar-tools - this library contains the zbarcam command, used to decode QR codes from text&lt;br /&gt;
-python-mnemonic - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script&lt;br /&gt;
-python-qt4, python-pip - electrum dependencies&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;qrencode&lt;/code&gt; - used to encode QR codes into text&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;zbar-tools&lt;/code&gt; - this library contains the zbarcam command, used to decode QR codes from text&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;python-mnemonic&lt;/code&gt; - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;python-qt4&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;python-pip&lt;/code&gt; - electrum dependencies&lt;/p&gt;
 
 &lt;p&gt;- copy apps to folder&lt;/p&gt;
 

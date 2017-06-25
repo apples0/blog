@@ -90,8 +90,8 @@
   <li>netbook with at least 2 usb ports, no ethernet (<a href="https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;ie=UTF8&amp;qid=1471767727&amp;sr=1-14&amp;keywords=inspiron&amp;refinements=p_85%3A2470955011">I recommend this one</a>)</li>
   <li>3 usb drives, at least 2GB (<a href="https://www.amazon.com/SanDisk-Cruzer-Frustration-Free-Packaging-SDCZ36-008G-AFFP2/dp/B00E9W1UKY/ref=sr_1_7?ie=UTF8&amp;qid=1485220606&amp;sr=8-7&amp;keywords=2GB+USB+drive">I used these ones (8GB)</a>)</li>
   <li>coin</li>
-  <li>dice (4 dies) (buy the <a href="https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&amp;qid=1473894884&amp;sr=8-1&amp;keywords=casino+dice">red ones</a>, note that the purple ones will NOT work)</li>
-  <li>small screwdriver <a href="https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&amp;ie=UTF8&amp;qid=1476232469&amp;sr=1-2&amp;keywords=%2300+screwdriver">like this one</a></li>
+  <li>dice (4 dies), (buy the <a href="https://www.amazon.com/Trademark-Poker-Grade-Serialized-Casino/dp/B00157YFJE/ref=sr_1_1?ie=UTF8&amp;qid=1473894884&amp;sr=8-1&amp;keywords=casino+dice">red ones</a>, note that the purple ones will NOT work)</li>
+  <li>small screwdriver <a href="https://www.amazon.com/TEKTON-2977-Phillips-Precision-Screwdriver/dp/B008TM1910/ref=sr_1_2?s=hi&amp;ie=UTF8&amp;qid=1476232469&amp;sr=1-2&amp;keywords=%2300+screwdriver">(one of these should work)</a></li>
   <li>electrical tape</li>
   <li>masking tape</li>
   <li>marker</li>
@@ -99,14 +99,14 @@
 
 <h3 id="b-label-your-drives">b. label your drives</h3>
 
-<p>Using the masking tape and marker, label the usb drives as “live”, “offline boot” and “offline apps”. In the glacier protocol the “live” drive is called the SETUP drive because that’s all they use it for but we’re going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.</p>
+<p>Using the masking tape and marker, label the usb drives as “live”, “offline boot” and “offline apps”. In the glacier protocol the “live” drive is named SETUP because that’s all they ever use it for but we’re going to be using this drive again and again, in order to communicate with our offline machine (via QR codes) and broadcast transactions to the network.</p>
 
 <h3 id="c-remove-the-netbooks-wireless-card">c. remove the netbook’s wireless card</h3>
 
-<p>For this step you will need to take your small screwdriver and open up the netbook, if you’re using the recommended dell netbook (<a href="https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;ie=UTF8&amp;qid=1471767727&amp;sr=1-14&amp;keywords=inspiron&amp;refinements=p_85%3A2470955011">2016 Dell Inspiron 11.6”</a>) then you can check out the following resources on how to do this:</p>
+<p>For this step you will need to take your small screwdriver and open up the netbook. If you’re using the recommended dell netbook (<a href="https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;ie=UTF8&amp;qid=1471767727&amp;sr=1-14&amp;keywords=inspiron&amp;refinements=p_85%3A2470955011">2016 Dell Inspiron 11.6”</a>) then you can check out the following resources on how to do this:</p>
 
-<p>- <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">video</a> (if link is down then check <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">here</a>)
-- <a href="https://github.com/apples0/blog/blob/master/dell_manual.pdf">manual</a> look at the “Removing the wireless card” section</p>
+<p>- <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">video</a> (if link is down then check <a href="https://github.com/apples0/blog/raw/master/removing_wireless_card_nFYXQQPoh90.mp4">here</a>)<br />
+- <a href="https://github.com/apples0/blog/blob/master/dell_manual.pdf">manual</a> (look at the “Removing the wireless card” section)</p>
 
 <p>After removing the card, use the electrical tape to wrap up the exposed terminal leads. You’ll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.</p>
 
@@ -114,12 +114,8 @@
 
 <p>This step assumes that you’re using a macbook for your regular computer, if that’s not the case then take a look at the Setup section of the <a href="https://github.com/apples0/blog/blob/master/Glacier.pdf">glacier protocol</a> to learn how to do this.</p>
 
-<p>- download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a> *
+<p>- download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a> *<br />
 - verify its integrity</p>
-
-<ul>
-  <li>Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!</li>
-</ul>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
 0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso</code></pre></figure>
@@ -144,19 +140,21 @@
 
 <p><code class="highlighter-rouge">$ diskutil unmountDisk ​USB-device-identifier-here</code></p>
 
-<p><code class="highlighter-rouge">​USB-device-identifier-here</code> will be something like <code class="highlighter-rouge">/dev/disk2</code>, it should be the last one but make sure to check</p>
+<p>“​USB-device-identifier-here” will be something like <code class="highlighter-rouge">/dev/disk2</code>, it should be the last one but make sure to check</p>
 
 <p>- copy dmg to usb drive (<strong>make sure to use the correct device identifier!!</strong> <em>Using the wrong identifier could overwrite your hard drive</em>)</p>
 
 <p><code class="highlighter-rouge">$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m</code></p>
 
-<p>if = input file
-of = output file
+<p>if = input file<br />
+of = output file<br />
 bs = block size</p>
 
 <p>- click Ignore button</p>
 
 <p>After the process has completed you’ll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn’t recognize it)</p>
+
+<p>* Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!</p>
 
 <h3 id="e-boot-into-the-live-system">e. boot into the live system</h3>
 
@@ -178,13 +176,13 @@ bs = block size</p>
 
 <p>Again, the output should match what’s listed in <a href="http://releases.ubuntu.com/xenial/SHA256SUMS">http://releases.ubuntu.com/xenial/SHA256SUMS</a></p>
 
-<p>- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen
-- type “startup disk”
-- click on Startup Disk Creator icon
-- The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.
-- Check out the “Disk to use” field, you’re going to see your usb drive show up in there
-- plug in the “offline boot” usb drive
-- select the “offline boot” drive in the “Disk to use” field
+<p>- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen<br />
+- type “startup disk”<br />
+- click on Startup Disk Creator icon<br />
+- The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.<br />
+- Check out the “Disk to use” field, you’re going to see your usb drive show up in there<br />
+- plug in the “offline boot” usb drive<br />
+- select the “offline boot” drive in the “Disk to use” field<br />
 - click “Make Startup Disk”</p>
 
 <h3 id="h-create-the-offline-apps-drive">h. create the “offline apps” drive</h3>
@@ -204,10 +202,10 @@ bs = block size</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip</code></pre></figure>
 
-<p>qrencode - used to encode QR codes into text<br />
-zbar-tools - this library contains the zbarcam command, used to decode QR codes from text<br />
-python-mnemonic - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script<br />
-python-qt4, python-pip - electrum dependencies</p>
+<p><code class="highlighter-rouge">qrencode</code> - used to encode QR codes into text<br />
+<code class="highlighter-rouge">zbar-tools</code> - this library contains the zbarcam command, used to decode QR codes from text<br />
+<code class="highlighter-rouge">python-mnemonic</code> - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script<br />
+<code class="highlighter-rouge">python-qt4</code>, <code class="highlighter-rouge">python-pip</code> - electrum dependencies</p>
 
 <p>- copy apps to folder</p>
 
