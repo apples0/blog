@@ -8,7 +8,7 @@ comments: false
 
 ## 1. obtain secure offline environment
 
-In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
+In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. The glacier protocol recommends using two laptops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the generated keys will be confirmed with two independent open source software packages. Any manufacturer-placed malware to display false keys would have to be extremely sophisticated, but if you require further peace of mind then you can always duplicate these steps on another system.
 
 ### a. get the required equipment
 
