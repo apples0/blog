@@ -286,7 +286,11 @@ Now you should have 24 words and a password.
 
 ## 3. storing your mnemonic words and password
 
-->![figure][figure]<-
+![figure][figure]
+
+<p align="center">
+  <img src="https://github.com/apples0/blog/raw/master/figure.png" alt="figure"/>
+</p>
 
 ### a. offline storage
 
