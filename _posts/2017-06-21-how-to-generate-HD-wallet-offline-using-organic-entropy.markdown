@@ -97,9 +97,9 @@ Note that your screen might flicker and jitter around a bit, that happened to me
 
 ### f. create the "offline boot" drive
 
-\- enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot
-\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
-\- verify its integrity
+\- enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot  
+\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu]  
+\- verify its integrity  
 
 {% highlight bash %}
 $ sha256sum ubuntu-16.04.2-desktop-amd64.iso
@@ -119,7 +119,7 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 
 ### h. create the "offline apps" drive
 
-You should still be in your live system, but if you're not then complete section e again.
+You should still be in your live system, but if you're not then complete [section e](#e.-boot-into-the-live-system) again.
 
 # download apt-get dependencies
 
@@ -187,7 +187,7 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 {% endhighlight %}
 
-\- the important thing is that you see "Good signature from "Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
+\- the important thing is that you see "Good signature from "Thomas Voegtlin (https://electrum.org) \<thomasv@electrum.org\>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
 
 \- download electrum dependencies using pip installer in download mode
 
@@ -255,11 +255,11 @@ You should now successfully boot into the Ubuntu system. If the above steps don'
 Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.
 
 
-# 2. generating mnemonic words using organic entropy
+## 2. generating mnemonic words using organic entropy
 
 If you have already been using a 12 word seed, use these words as your first 12 words (see [Plausible Deniability](#plausible-deniability) section).
 
-## a. flip that coin, roll some dice
+### a. flip that coin, roll some dice
 
 In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
 
@@ -269,7 +269,7 @@ In this section we will be using the coin and the dice to generate the seed word
 
 \- repeat the above steps until you have recorded 23 words  
 
-## b. find the 24th word
+### b. find the 24th word
 
 In order for our words to be fully BIP39 compatible, the checksum must be satisfied. We can use the [findlastword.py][script] script to do this. Input your 23 words and then run the following command:
 
@@ -277,16 +277,16 @@ In order for our words to be fully BIP39 compatible, the checksum must be satisf
 
 There are a handful of candidate words, the way I picked it was to flip a coin and rolled a die. Heads would mean I would start from the top and tails would mean I would start from bottom, I would then select the word corresponding to what I rolled. So if I flipped a tails and rolled a two then I would select the second to last word. Or you can just pick one.
 
-## c. think of a password
+### c. think of a password
 
 Think of an easy to remember password that isn't written down anywhere or associated with you online.
 
 Now you should have 24 words and a password.
 
 
-# 3. storing your mnemonic words and password
+## 3. storing your mnemonic words and password
 
-## a. offline storage
+### a. offline storage
 
 *Store the first 12 words offline, in multiple locations.*
 
@@ -297,20 +297,20 @@ It's important to write the words down on paper instead of using something like 
 - laminating 3 pieces of paper together with the words written on the middle sheet, maybe the outside sheets would be a painting or a picture  
 - writing the words in UV light on the inside of a closet or some other weird location  
 
-## b. online storage
+### b. online storage
 
 *Store the second 12 words online, in multiple locations.*
 
 These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide. If you're familiar with command line programs then you'll find it really easy to use. Here is a [great tutorial][steghidetutorial], if the link is down then click [here][steghidetutorial2].
 
-## c. mindgrapes storage
+### c. mindgrapes storage
 
 Remember your password as if your entire bank account depended on it.
 
 ![figure][figure]
 
 
-# 4. generating HD wallet
+## 4. generating HD wallet
 
 In your offline computer, open the bip39-standalone.html file and input your 24 words into the "BIP39 Mnemonic" field and your password into the "BIP39 Passphrase" field. Now scroll down and you'll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won't actually use these, you'll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare the values.
 
@@ -320,24 +320,26 @@ Open Electrum and do `Standard Wallet -> I already have a seed` and then click t
 
 You should see your xprv and xpub keys in plaintext down at the bottom. Make sure these keys match what you get from the bip39-standalone.html file! If they don't match then you're either mistakenly reading from the BIP39 Extended Keys instead of the Account Extended Keys or something is horribly, horribly wrong.
 
-# 5. receiving btc
+## 5. receiving btc
 
 In Electrum in your offline computer, go to `Wallet -> Master Public Keys` and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.
 
-# 6. sending btc
+## 6. sending btc
 
-Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. After booting and preparing the online computer and the offline computer, a high-level summary of the steps are shown below:
+Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. A high-level summary of the steps are shown below:
 
-1. transfer master public key to online computer
-2. create unsigned transaction on the online computer
-3. transfer unsigned transaction to offline computer
-4. sign transaction
-5. transfer signed transaction to the online computer
-6. broadcast transaction
+a. boot online computer off "live" usb drive
+b. boot offline computer off "offline boot" usb drive
+c. transfer master public key to online computer
+d. create unsigned transaction on the online computer
+e. transfer unsigned transaction to offline computer
+f. sign transaction
+g. transfer signed transaction to the online computer
+h. broadcast transaction
 
 Here we go!
 
-**boot online computer off "live" usb drive**
+### a. boot online computer off "live" usb drive**
 
 {% highlight bash %}
 $ sudo apt-add-repository universe
@@ -358,15 +360,13 @@ $ sudo bash enable_facetimehd_camera.sh
 
 To test that the above works, type the command `$ zbarcam`, if everything worked out then you should see a dialog pop up showing the camera output.
 
-**boot offline computer off "offline boot" usb drive**
+### b. boot offline computer off "offline boot" usb drive**
 
-\- copy apps and electrum folders to home directory
-\- install apps and electrum as in the [install apps](#install-apps) section
+\- copy apps and electrum folders to home directory  
+\- install apps and electrum as in the [install apps](#install-apps) section  
 
-the process
-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 
-1. transfer master public key to online computer
+### c. transfer master public key to online computer
 
 on the online computer:
 
@@ -392,7 +392,7 @@ on the offline computer:
 Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a "watching wallet" on your online computer.
 
 
-2. create unsigned transaction on the online computer
+### d. create unsigned transaction on the online computer
 
     - go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.
     
@@ -400,7 +400,7 @@ Now maximize the dialog to make the QR code take up the whole screen and then ho
     
     - on the dialog that pops up, click the QR code button and maximize the resulting dialog so it's easier to scan
 
-3. transfer unsigned transaction to offline computer
+### e. transfer unsigned transaction to offline computer
 
 on the offline computer:
 
@@ -408,13 +408,13 @@ on the offline computer:
     
 Now hold your offline computer camera to the online computer screen and read the QR code
 
-4. sign transaction
+### f. sign transaction
 
     - make sure everything looks good
     
     - click the Sign button
 
-5. transfer signed transaction to the online computer
+### g. transfer signed transaction to the online computer
 
     - after hitting the Sign button, click the QR code icon and maximize it
 
@@ -425,14 +425,14 @@ on the online computer:
 Now hold your offline computer screen up to your online computer camera
 
 
-6. broadcast to the network
+### h. broadcast to the network
 
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
 
 
-# additional notes
+## additional notes
 
-## plausible deniability
+### plausible deniability
 
 If you have already been using a 12 word seed, then you can use those 12 words as the words you store in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be significant transaction history with those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.
 
