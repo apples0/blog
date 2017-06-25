@@ -7,7 +7,7 @@ comments: false
 ---
 
 
-# 1. obtain secure offline environment
+### 1. obtain secure offline environment
 
 In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
 
@@ -24,7 +24,7 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 
 ## b. label your drives
 
-- using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is called the SETUP drive because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
+Using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is called the SETUP drive because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
 
 ## c. remove the netbook's wireless card
 
@@ -130,7 +130,7 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 
 You should still be in your live system, but if you're not then complete section e again.
 
-### download apt-get dependencies
+# download apt-get dependencies
 
 - add repositories
 
