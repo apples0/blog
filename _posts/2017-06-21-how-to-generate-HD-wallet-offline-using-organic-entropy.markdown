@@ -374,11 +374,9 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 
 on the online computer:
 
-   \- open Electrum  
-
-   \- Standard Wallet -> Use public or private keys  
-    
-   \- click on QR code icon  
+\- open Electrum  
+\- Standard Wallet -> Use public or private keys  
+\- click on QR code icon  
     
 The camera should appear, now you're ready to receive the master public key as a QR code.
  
@@ -386,11 +384,8 @@ The camera should appear, now you're ready to receive the master public key as a
 on the offline computer:
 
 \- open Electrum  
-    
 \- Standard Wallet -> I already have a seed  
-    
 \- Wallet -> Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)  
-
 \- Click the QR code icon  
 
 Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a "watching wallet" on your online computer.
@@ -399,9 +394,7 @@ Now maximize the dialog to make the QR code take up the whole screen and then ho
 ### d. create unsigned transaction on the online computer
 
 \- go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.  
-    
 \- click the Preview button  
-     
 \- on the dialog that pops up, click the QR code button and maximize the resulting dialog so it's easier to scan  
 
 ### e. transfer unsigned transaction to offline computer
@@ -414,25 +407,22 @@ Now hold your offline computer camera to the online computer screen and read the
 
 ### f. sign transaction
 
-    - make sure everything looks good
-    
-    - click the Sign button
+\- make sure everything looks good  
+\- click the Sign button  
 
 ### g. transfer signed transaction to the online computer
 
-    - after hitting the Sign button, click the QR code icon and maximize it
+\- after hitting the Sign button, click the QR code icon and maximize it  
 
 on the online computer:
 
-    - Tools -> Load Transaction -> From QR code
+\- Tools -> Load Transaction -> From QR code
 
 Now hold your offline computer screen up to your online computer camera
-
 
 ### h. broadcast to the network
 
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
-
 
 ## additional notes
 
