@@ -6,7 +6,6 @@ categories: bitcoin
 comments: false
 ---
 
-
 ### 1. obtain secure offline environment
 
 In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
@@ -136,8 +135,10 @@ You should still be in your live system, but if you're not then complete section
 
 For some reason the live Ubuntu system doesn't have the normal apt-get repositories added by default, so we need to add them:
 
-`$ sudo apt-add-repository universe`
-`$ sudo apt-get update`
+{% highlight bash %}
+$ sudo apt-add-repository universe
+$ sudo apt-get update
+{% endhighlight %}
 
 - download the apps for the offline machine
 
@@ -152,8 +153,10 @@ python-qt4, python-pip - electrum dependencies
 
 - copy apps to folder
 
-`$ mkdir ~/apps`
-`$ cp /var/cache/apt/archives/*.deb ~/apps`
+{% highlight bash %}
+$ mkdir ~/apps
+$ cp /var/cache/apt/archives/*.deb ~/apps
+{% endhighlight %}
 
 ### download electrum
 
@@ -200,8 +203,10 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 
 ### download BIP39 mnemonic generator
 
-`$ sudo apt-get install git`  
-`$ git clone https://github.com/iancoleman/bip39.git`  
+{% highlight bash %}
+$ sudo apt-get install git
+$ git clone https://github.com/iancoleman/bip39.git
+{% endhighlight %}
 
 ### download findlastword.py script
 
@@ -266,9 +271,9 @@ If you have already been using a 12 word seed, use these words as your first 12 
 In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
 
 - flip a coin  
-
 - roll the dice  
 - record the word  
+
 - repeat the above steps until you have recorded 23 words  
 
 ## b. find the 24th word
@@ -334,19 +339,22 @@ Sending BTC is a more involved process. We will be using our regular computer bo
 
 **boot online computer off "live" usb drive**
 
-`$ sudo apt-add-repository universe`  
-`$ sudo apt-get update`  
-`$ sudo apt-get install qrencode zbar-tools steghide python-pip python-qt4`  
+{% highlight bash %}
+$ sudo apt-add-repository universe
+$ sudo apt-get update
+$ sudo apt-get install qrencode zbar-tools steghide python-pip python-qt4
+{% endhighlight %}
 
 - follow [download electrum](#download-electrum) step to download, verify and install electrum
 
-
 Unfortunately the macbook camera (called facetimehd) does not work in Linux, however thankfully github user patjak came up with a solution outlined [here][bcwc_pcie]. Using these instructions I created this [script][facetimehdscript].
 
-`$ sudo apt-add-repository universe`  
-`$ sudo apt-get update`  
-`$ wget https://github.com/apples0/blog/raw/master/enable_facetimehd_camera.sh`  
-`$ sudo bash enable_facetimehd_camera.sh`
+{% highlight bash %}
+$ sudo apt-add-repository universe
+$ sudo apt-get update
+$ wget https://github.com/apples0/blog/raw/master/enable_facetimehd_camera.sh
+$ sudo bash enable_facetimehd_camera.sh
+{% endhighlight %}
 
 To test that the above works, type the command `$ zbarcam`, if everything worked out then you should see a dialog pop up showing the camera output.
 
