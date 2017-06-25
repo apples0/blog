@@ -29,8 +29,8 @@ Using the masking tape and marker, label the usb drives as "live", "offline boot
 
 For this step you will need to take your small screwdriver and open up the netbook, if you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
 
-- [video][video] (if link is down then check [here][video2])
-- [manual][manual] look at the "Removing the wireless card" section
+\- [video][video] (if link is down then check [here][video2])
+\- [manual][manual] look at the "Removing the wireless card" section
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
@@ -38,8 +38,8 @@ After removing the card, use the electrical tape to wrap up the exposed terminal
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
-- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *
-- verify its integrity
+\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *
+\- verify its integrity
 
 
 * Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
@@ -51,55 +51,55 @@ $ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
 
 The output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
 
-- convert the iso to dmg format
+\- convert the iso to dmg format
 
 {% highlight bash %}
 $ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.2-desktop-amd64.img
 {% endhighlight %}
 
-- determine the macOS device identifier for the boot USB
+\- determine the macOS device identifier for the boot USB
 
 `$ diskutil list`
 
-- plug the "live" usb drive into your regular computer
+\- plug the "live" usb drive into your regular computer
 
 `$ diskutil list `
 
 You should now see your usb listed as an additional drive that wasn't there before. The device identifier ​is the part that comes before `(external, physical)` ​(for example `/dev/disk2`) ​
 
-- unmount the usb
+\- unmount the usb
 
 `$ diskutil unmountDisk ​USB-device-identifier-here`
 
 `​USB-device-identifier-here` will be something like `/dev/disk2`, it should be the last one but make sure to check
 
-- copy dmg to usb drive (**make sure to use the correct device identifier!!** *Using the wrong identifier could overwrite your hard drive*)
+\- copy dmg to usb drive (**make sure to use the correct device identifier!!** *Using the wrong identifier could overwrite your hard drive*)
 
 `$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m`
 
 if = input file
 of = output file
 bs = block size
-  
-- click Ignore button 
+
+\- click Ignore button 
   
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
 
 
 ### e. boot into the live system
 
-- plug the "live" usb drive into your regular computer  
-- restart your regular computer  
-- hold down the option key  
-- select the live drive, it will probably say "UEFI". If there are two then it's probably the last one, if you pick the wrong one don't cry over your keyboard just try again.  
+\- plug the "live" usb drive into your regular computer  
+\- restart your regular computer  
+\- hold down the option key  
+\- select the live drive, it will probably say "UEFI". If there are two then it's probably the last one, if you pick the wrong one don't cry over your keyboard just try again.  
 
 Note that your screen might flicker and jitter around a bit, that happened to me but it's not big deal.
 
 ### f. create the "offline boot" drive
 
-- enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot
-- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
-- verify its integrity
+\- enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot
+\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
+\- verify its integrity
 
 {% highlight bash %}
 $ sha256sum ubuntu-16.04.2-desktop-amd64.iso
@@ -108,22 +108,14 @@ $ sha256sum ubuntu-16.04.2-desktop-amd64.iso
 
 Again, the output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
 
-- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen.
-
-- type "startup disk"
-
-- click on Startup Disk Creator icon
-
-- The “Source disc image” panel should show the .iso file you downloaded. If it doesn't then click the “Other” button and find it in the folder you downloaded it to.
-
-- Check out the “Disk to use” field, you're going to see your usb drive show up in there
-
-- plug in the "offline boot" usb drive
-
-- select the "offline boot" drive in the "Disk to use" field
-
-- click "Make Startup Disk"
-
+\- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen
+\- type "startup disk"
+\- click on Startup Disk Creator icon
+\- The “Source disc image” panel should show the .iso file you downloaded. If it doesn't then click the “Other” button and find it in the folder you downloaded it to.
+\- Check out the “Disk to use” field, you're going to see your usb drive show up in there
+\- plug in the "offline boot" usb drive
+\- select the "offline boot" drive in the "Disk to use" field
+\- click "Make Startup Disk"
 
 ### h. create the "offline apps" drive
 
@@ -140,7 +132,7 @@ $ sudo apt-add-repository universe
 $ sudo apt-get update
 {% endhighlight %}
 
-- download the apps for the offline machine
+\- download the apps for the offline machine
 
 {% highlight bash %}
 $ sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip
@@ -151,7 +143,7 @@ zbar-tools - this library contains the zbarcam command, used to decode QR codes 
 python-mnemonic - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script  
 python-qt4, python-pip - electrum dependencies  
 
-- copy apps to folder
+\- copy apps to folder
 
 {% highlight bash %}
 $ mkdir ~/apps
@@ -160,7 +152,7 @@ $ cp /var/cache/apt/archives/*.deb ~/apps
 
 # download electrum
 
-- download electrum and its signature
+\- download electrum and its signature
  
 {% highlight bash %}
 $ mkdir ~/electrum
@@ -177,11 +169,11 @@ pub  4096R/[7F9470E6][pgpfingerprint] 2011-06-15
 
 Click on the 7F9470E6 fingerprint and that will take you to a static page with the pgp public key block, copy everthing from `-----BEGIN PGP PUBLIC KEY BLOCK-----` to `-----END PGP PUBLIC KEY BLOCK-----` and save it as a file. You can name it `electrumpubkey.asc` or `numberonestunna.makethemsayuggghhh` it doesn't really matter.
 
-- import gpg public key into your keyring
+\- import gpg public key into your keyring
 
 `$ gpg --import electrumpubkey.asc`
 
-- verify the downloaded source was actually signed by Thomas and not some hacker.
+\- verify the downloaded source was actually signed by Thomas and not some hacker.
 
 {% highlight bash %}
 $ gpg --verify Electrum-2.8.3.tar.gz.asc Electrum-2.8.3.tar.gz
@@ -195,9 +187,9 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 {% endhighlight %}
 
-- the important thing is that you see "Good signature from "Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
+\- the important thing is that you see "Good signature from "Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
 
-- download electrum dependencies using pip installer in download mode
+\- download electrum dependencies using pip installer in download mode
 
 `$ sudo pip2 install --download ~/electrum ~/electrum/Electrum-2.8.3.tar.gz`
 
@@ -220,36 +212,37 @@ you should now have the folders `apps`, `electrum`, `bip39` and the file findlas
 
 ## i. boot offline computer
 
-- plug in the "offline boot" into your offline computer
+\- plug in the "offline boot" into your offline computer
 
-- power it on and repeatedly press F2 until you enter BIOS setup
+\- power it on and repeatedly press F2 until you enter BIOS setup
 
-- in the BIOS, disable "Fast Boot" and "Secure Boot"
+\- in the BIOS, disable "Fast Boot" and "Secure Boot"
 
-- click "File Browser Add Boot Option"
+\- click "File Browser Add Boot Option"
 
-- click on the USB drive and keep drilling down until you see "grubx64.efi" and the click on it
+\- click on the USB drive and keep drilling down until you see "grubx64.efi" and the click on it
 
-- now disable the "Windows Boot Manager" option
+\- now disable the "Windows Boot Manager" option
 
-- click F10 to save and exit
+\- click F10 to save and exit
 
 You should now boot into the grub menu, in order for the dell to boot you have to adjust the boot commands.
 
-- press "e" to edit the boot commands
+\- press "e" to edit the boot commands
 
-- delete "quiet splash"
+\- delete "quiet splash"
 
-- in its place, add "nomodeset=0"
+\- in its place, add "nomodeset=0"
 
-- click F10 to save and boot
+\- click F10 to save and boot
 
 You should now successfully boot into the Ubuntu system. If the above steps don't work for you then just use google and play around with the BIOS settings until it works.
 
 ## j. install apps
 
-- plug in "offline apps" drive
-- copy everything on the drive to your home folder
+\- plug in "offline apps" drive
+
+\- copy everything on the drive to your home folder
 
 ** install the apt-get packages **
 
@@ -270,11 +263,11 @@ If you have already been using a 12 word seed, use these words as your first 12 
 
 In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
 
-- flip a coin  
-- roll the dice  
-- record the word  
+\- flip a coin  
+\- roll the dice  
+\- record the word  
 
-- repeat the above steps until you have recorded 23 words  
+\- repeat the above steps until you have recorded 23 words  
 
 ## b. find the 24th word
 
@@ -333,9 +326,16 @@ In Electrum in your offline computer, go to `Wallet -> Master Public Keys` and n
 
 # 6. sending btc
 
-Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction off our offline computer using zbarcam, sign the transaction, and transfer the signed transaction back to our live computer, using zbarcam on our regular computer. Here we go!
+Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. After booting and preparing the online computer and the offline computer, a high-level summary of the steps are shown below:
 
+1. transfer master public key to online computer
+2. create unsigned transaction on the online computer
+3. transfer unsigned transaction to offline computer
+4. sign transaction
+5. transfer signed transaction to the online computer
+6. broadcast transaction
 
+Here we go!
 
 **boot online computer off "live" usb drive**
 
@@ -345,7 +345,7 @@ $ sudo apt-get update
 $ sudo apt-get install qrencode zbar-tools steghide python-pip python-qt4
 {% endhighlight %}
 
-- follow [download electrum](#download-electrum) step to download, verify and install electrum
+\- follow [download electrum](#download-electrum) step to download, verify and install electrum
 
 Unfortunately the macbook camera (called facetimehd) does not work in Linux, however thankfully github user patjak came up with a solution outlined [here][bcwc_pcie]. Using these instructions I created this [script][facetimehdscript].
 
@@ -360,14 +360,13 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 
 **boot offline computer off "offline boot" usb drive**
 
-- copy apps and electrum folders to home directory
-- install apps and electrum as in the [install apps](#install-apps) section
-
+\- copy apps and electrum folders to home directory
+\- install apps and electrum as in the [install apps](#install-apps) section
 
 the process
-----------------
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 
-1. get master public key on online computer
+1. transfer master public key to online computer
 
 on the online computer:
 
