@@ -15,15 +15,15 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
 - 3 usb drives, at least 2GB ([I used these ones (8GB)][usb])
 - coin
-- dice (4 dies) (buy the [red ones][dice], note that the purple ones will NOT work)
-- small screwdriver [like this one][screwdriver]
+- dice (4 dies), (buy the [red ones][dice], note that the purple ones will NOT work)
+- small screwdriver [(one of these should work)][screwdriver]
 - electrical tape
 - masking tape
 - marker
 
 ### b. label your drives
 
-Using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is called the SETUP drive because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
+Using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is named SETUP because that's all they ever use it for but we're going to be using this drive again and again, in order to communicate with our offline machine (via QR codes) and broadcast transactions to the network.
 
 ### c. remove the netbook's wireless card
 
