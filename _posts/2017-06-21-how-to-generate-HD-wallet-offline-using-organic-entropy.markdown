@@ -138,10 +138,10 @@ $ sudo apt-get update
 $ sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip
 {% endhighlight %}
 
-qrencode - used to encode QR codes into text  
-zbar-tools - this library contains the zbarcam command, used to decode QR codes from text  
-python-mnemonic - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script  
-python-qt4, python-pip - electrum dependencies  
+`qrencode` - used to encode QR codes into text  
+`zbar-tools` - this library contains the zbarcam command, used to decode QR codes from text  
+`python-mnemonic` - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script  
+`python-qt4`, `python-pip` - electrum dependencies  
 
 \- copy apps to folder
 
