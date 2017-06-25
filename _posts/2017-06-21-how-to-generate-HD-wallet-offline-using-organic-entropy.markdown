@@ -131,7 +131,7 @@ You should still be in your live system, but if you're not then complete section
 
 # download apt-get dependencies
 
-- add repositories
+\- add repositories
 
 For some reason the live Ubuntu system doesn't have the normal apt-get repositories added by default, so we need to add them:
 
