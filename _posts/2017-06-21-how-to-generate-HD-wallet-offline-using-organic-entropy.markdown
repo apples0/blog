@@ -38,11 +38,11 @@ After removing the card, use the electrical tape to wrap up the exposed terminal
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
-\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *
+\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *  
 \- verify its integrity
 
 
-* Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
+\* Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
 
 {% highlight bash %}
 $ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
