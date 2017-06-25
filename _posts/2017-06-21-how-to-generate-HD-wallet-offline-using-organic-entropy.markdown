@@ -309,6 +309,8 @@ These words can be emailed to yourself, put on cloud storage, stored in a privat
 
 ### c. mindgrapes storage
 
+*Store the password in your head*
+
 Remember your password as if your entire bank account depended on it.
 
 
@@ -316,7 +318,7 @@ Remember your password as if your entire bank account depended on it.
 
 In your offline computer, open the bip39-standalone.html file and input your 24 words into the "BIP39 Mnemonic" field and your password into the "BIP39 Passphrase" field. Now scroll down and you'll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won't actually use these, you'll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare the values.
 
-Open Electrum and do `Standard Wallet -> I already have a seed` and then click the Options button and make sure that the checkboxed "Extend this seed with custom words" and "BIP39 seed" are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it's no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:
+Open Electrum and do "Standard Wallet -> I already have a seed" and then click the Options button and make sure that the checkboxed "Extend this seed with custom words" and "BIP39 seed" are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it's no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:
 
 `$ cat ~/.electrum/wallets/default_wallet`  
 
@@ -324,7 +326,7 @@ You should see your xprv and xpub keys in plaintext down at the bottom. Make sur
 
 ## 5. receiving btc
 
-In Electrum in your offline computer, go to `Wallet -> Master Public Keys` and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.
+In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.
 
 ## 6. sending btc
 
@@ -372,41 +374,41 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 
 on the online computer:
 
-    - open Electrum
+    \- open Electrum  
 
-    - Standard Wallet -> Use public or private keys
+    \- Standard Wallet -> Use public or private keys  
     
-    - click on QR code icon
+    \- click on QR code icon  
     
 The camera should appear, now you're ready to receive the master public key as a QR code.
  
     
 on the offline computer:
 
-    - open Electrum
+\- open Electrum  
     
-    - Standard Wallet -> I already have a seed
+\- Standard Wallet -> I already have a seed  
     
-    - Wallet -> Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)
+\- Wallet -> Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)  
 
-    - Click the QR code icon
-    
+\- Click the QR code icon  
+
 Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a "watching wallet" on your online computer.
 
 
 ### d. create unsigned transaction on the online computer
 
-    - go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.
+\- go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.  
     
-    - click the Preview button
-    
-    - on the dialog that pops up, click the QR code button and maximize the resulting dialog so it's easier to scan
+\- click the Preview button  
+     
+\- on the dialog that pops up, click the QR code button and maximize the resulting dialog so it's easier to scan  
 
 ### e. transfer unsigned transaction to offline computer
 
 on the offline computer:
 
-    - Tools -> Load Transaction -> From QR code
+\- Tools -> Load Transaction -> From QR code  
     
 Now hold your offline computer camera to the online computer screen and read the QR code
 
