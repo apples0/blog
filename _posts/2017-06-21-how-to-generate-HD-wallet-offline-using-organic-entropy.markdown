@@ -38,16 +38,18 @@ After removing the card, use the electrical tape to wrap up the exposed terminal
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
-\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *  
-\- verify its integrity
+\- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu]  
 
+&nbsp;&nbsp;&nbsp;Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
+
+\- verify its integrity
 
 {% highlight bash %}
 $ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
 0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso
 {% endhighlight %}
 
-The output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
+(The output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS])
 
 \- convert the iso to dmg format
 
@@ -73,7 +75,10 @@ You should now see your usb listed as an additional drive that wasn't there befo
 
 \- copy dmg to usb drive (**make sure to use the correct device identifier!!** *Using the wrong identifier could overwrite your hard drive*)
 
-`$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m`
+
+{% highlight bash %}
+$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m
+{% endhighlight %}
 
 if = input file  
 of = output file  
@@ -83,8 +88,6 @@ bs = block size
   
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
   
-  
-\* Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
 
 ### e. boot into the live system
 
