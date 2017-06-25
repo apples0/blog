@@ -6,11 +6,11 @@ categories: bitcoin
 comments: false
 ---
 
-### 1. obtain secure offline environment
+## 1. obtain secure offline environment
 
 In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
 
-## a. get the required equipment
+### a. get the required equipment
 
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
 - 3 usb drives, at least 2GB ([I used these ones (8GB)][usb])
@@ -21,11 +21,11 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 - masking tape
 - marker
 
-## b. label your drives
+### b. label your drives
 
 Using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is called the SETUP drive because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
 
-## c. remove the netbook's wireless card
+### c. remove the netbook's wireless card
 
 For this step you will need to take your small screwdriver and open up the netbook, if you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
 
@@ -34,7 +34,7 @@ For this step you will need to take your small screwdriver and open up the netbo
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
-## d. create the "live" drive
+### d. create the "live" drive
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
@@ -86,7 +86,7 @@ bs = block size
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
 
 
-## e. boot into the live system
+### e. boot into the live system
 
 - plug the "live" usb drive into your regular computer  
 - restart your regular computer  
@@ -95,7 +95,7 @@ After the process has completed you'll get an error saying the disk is not recog
 
 Note that your screen might flicker and jitter around a bit, that happened to me but it's not big deal.
 
-## f. create the "offline boot" drive
+### f. create the "offline boot" drive
 
 - enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot
 - download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
@@ -125,7 +125,7 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 - click "Make Startup Disk"
 
 
-## h. create the "offline apps" drive
+### h. create the "offline apps" drive
 
 You should still be in your live system, but if you're not then complete section e again.
 
@@ -158,7 +158,7 @@ $ mkdir ~/apps
 $ cp /var/cache/apt/archives/*.deb ~/apps
 {% endhighlight %}
 
-### download electrum
+# download electrum
 
 - download electrum and its signature
  
@@ -201,20 +201,20 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 
 `$ sudo pip2 install --download ~/electrum ~/electrum/Electrum-2.8.3.tar.gz`
 
-### download BIP39 mnemonic generator
+# download BIP39 mnemonic generator
 
 {% highlight bash %}
 $ sudo apt-get install git
 $ git clone https://github.com/iancoleman/bip39.git
 {% endhighlight %}
 
-### download findlastword.py script
+# download findlastword.py script
 
 In order to satisfy the BIP39 checksum, we must choose a suitable last word. We have a simple [script][script] to accomplish this, thanks to reddit user Morveus in [this thread][reddit].
 
 `$ wget https://raw.githubusercontent.com/apples0/blog/master/findlastword.py`
 
-### copy all of this junk to the offline apps usb
+# copy all of this junk to the offline apps usb
 
 you should now have the folders `apps`, `electrum`, `bip39` and the file findlastword.py in the offline apps drive
 
