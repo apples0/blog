@@ -234,11 +234,11 @@ You should now successfully boot into the Ubuntu system. If the above steps don'
 \- plug in "offline apps" drive  
 \- copy everything on the drive to your home folder  
 
-** install the apt-get packages **
+**install the apt-get packages**
 
 `$ sudo dpkg -i ~/apps/*.deb`
 
-** install electrum **
+**install electrum**
 
 `$ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz`
 
