@@ -374,11 +374,11 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 
 on the online computer:
 
-    \- open Electrum  
+   \- open Electrum  
 
-    \- Standard Wallet -> Use public or private keys  
+   \- Standard Wallet -> Use public or private keys  
     
-    \- click on QR code icon  
+   \- click on QR code icon  
     
 The camera should appear, now you're ready to receive the master public key as a QR code.
  
