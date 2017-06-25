@@ -7,11 +7,11 @@ comments: false
 ---
 
 
-## 1. obtain secure offline environment
+# 1. obtain secure offline environment
 
-In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol] \[1\]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
+In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated. 
 
-# a. get the required equipment
+## a. get the required equipment
 
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
 - 3 usb drives, at least 2GB ([I used these ones (8GB)][usb])
@@ -22,11 +22,11 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 - masking tape
 - marker
 
-# b. label your drives
+## b. label your drives
 
-- using the masking tape and marker, label the usb drives as "live" \[2\], "offline boot" and "offline apps"
+- using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is called the SETUP drive because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
 
-# c. remove the netbook's wireless card
+## c. remove the netbook's wireless card
 
 For this step you will need to take your small screwdriver and open up the netbook, if you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
 
@@ -35,12 +35,15 @@ For this step you will need to take your small screwdriver and open up the netbo
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
-# d. create the "live" drive
+## d. create the "live" drive
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
-- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
+- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *
 - verify its integrity
+
+
+* Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
 
 {% highlight bash %}
 $ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
@@ -84,7 +87,7 @@ bs = block size
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
 
 
-# e. boot into the live system
+## e. boot into the live system
 
 - plug the "live" usb drive into your regular computer  
 - restart your regular computer  
@@ -93,7 +96,7 @@ After the process has completed you'll get an error saying the disk is not recog
 
 Note that your screen might flicker and jitter around a bit, that happened to me but it's not big deal.
 
-# f. create the "offline boot" drive
+## f. create the "offline boot" drive
 
 - enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot
 - download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] \[3\]
@@ -123,12 +126,11 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 - click "Make Startup Disk"
 
 
-# h. create the "offline apps" drive
+## h. create the "offline apps" drive
 
 You should still be in your live system, but if you're not then complete section e again.
 
-
-## download apt-get dependencies
+### download apt-get dependencies
 
 - add repositories
 
@@ -153,7 +155,7 @@ python-qt4, python-pip - electrum dependencies
 `$ mkdir ~/apps`
 `$ cp /var/cache/apt/archives/*.deb ~/apps`
 
-## download electrum
+### download electrum
 
 - download electrum and its signature
  
@@ -196,22 +198,22 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 
 `$ sudo pip2 install --download ~/electrum ~/electrum/Electrum-2.8.3.tar.gz`
 
-## download BIP39 mnemonic generator
+### download BIP39 mnemonic generator
 
 `$ sudo apt-get install git`  
 `$ git clone https://github.com/iancoleman/bip39.git`  
 
-## download findlastword.py script
+### download findlastword.py script
 
 In order to satisfy the BIP39 checksum, we must choose a suitable last word. We have a simple [script][script] to accomplish this, thanks to reddit user Morveus in [this thread][reddit].
 
 `$ wget https://raw.githubusercontent.com/apples0/blog/master/findlastword.py`
 
-## copy all of this junk to the offline apps usb
+### copy all of this junk to the offline apps usb
 
 you should now have the folders `apps`, `electrum`, `bip39` and the file findlastword.py in the offline apps drive
 
-## boot offline computer
+## i. boot offline computer
 
 - plug in the "offline boot" into your offline computer
 
@@ -239,7 +241,7 @@ You should now boot into the grub menu, in order for the dell to boot you have t
 
 You should now successfully boot into the Ubuntu system. If the above steps don't work for you then just use google and play around with the BIOS settings until it works.
 
-## install apps
+## j. install apps
 
 - plug in "offline apps" drive
 - copy everything on the drive to your home folder
@@ -252,11 +254,14 @@ You should now successfully boot into the Ubuntu system. If the above steps don'
 
 `$ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz`
 
-## generating mnemonic words using organic entropy
+Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.
+
+
+# 2. generating mnemonic words using organic entropy
 
 If you have already been using a 12 word seed, use these words as your first 12 words (see [Plausible Deniability](#plausible-deniability) section).
 
-# a. flip that coin, roll some dice
+## a. flip that coin, roll some dice
 
 In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
 
@@ -266,7 +271,7 @@ In this section we will be using the coin and the dice to generate the seed word
 - record the word  
 - repeat the above steps until you have recorded 23 words  
 
-# b. find the 24th word
+## b. find the 24th word
 
 In order for our words to be fully BIP39 compatible, the checksum must be satisfied. We can use the [findlastword.py][script] script to do this. Input your 23 words and then run the following command:
 
@@ -274,13 +279,16 @@ In order for our words to be fully BIP39 compatible, the checksum must be satisf
 
 There are a handful of candidate words, the way I picked it was to flip a coin and rolled a die. Heads would mean I would start from the top and tails would mean I would start from bottom, I would then select the word corresponding to what I rolled. So if I flipped a tails and rolled a two then I would select the second to last word. Or you can just pick one.
 
-# c. think of a password
+## c. think of a password
 
 Think of an easy to remember password that isn't written down anywhere or associated with you online.
 
-## storing your keys
+Now you should have 24 words and a password.
 
-# a. offline storage
+
+# 3. storing your mnemonic words and password
+
+## a. offline storage
 
 *Store the first 12 words offline, in multiple locations.*
 
@@ -291,21 +299,22 @@ It's important to write the words down on paper instead of using something like 
 - laminating 3 pieces of paper together with the words written on the middle sheet, maybe the outside sheets would be a painting or a picture  
 - writing the words in UV light on the inside of a closet or some other weird location  
 
-# b. online storage
+## b. online storage
 
 *Store the second 12 words online, in multiple locations.*
 
 These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide. If you're familiar with command line programs then you'll find it really easy to use. Here is a [great tutorial][steghidetutorial], if the link is down then click [here][steghidetutorial2].
 
-# c. mindgrapes storage
+## c. mindgrapes storage
 
-Remember that one word like a motherfucker.
+Remember your password as if your entire bank account depended on it.
 
 ![figure][figure]
 
-## generating HD wallet
 
-Open the bip39-standalone.html file and input your 24 words and passphrase. Then select a password! Now you'll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won't actually use these, you'll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare these values.
+# 4. generating HD wallet
+
+In your offline computer, open the bip39-standalone.html file and input your 24 words into the "BIP39 Mnemonic" field and your password into the "BIP39 Passphrase" field. Now scroll down and you'll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won't actually use these, you'll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare the values.
 
 Open Electrum and do `Standard Wallet -> I already have a seed` and then click the Options button and make sure that the checkboxed "Extend this seed with custom words" and "BIP39 seed" are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it's no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:
 
@@ -313,14 +322,15 @@ Open Electrum and do `Standard Wallet -> I already have a seed` and then click t
 
 You should see your xprv and xpub keys in plaintext down at the bottom. Make sure these keys match what you get from the bip39-standalone.html file! If they don't match then you're either mistakenly reading from the BIP39 Extended Keys instead of the Account Extended Keys or something is horribly, horribly wrong.
 
+# 5. receiving btc
 
-## receiving btc
+In Electrum in your offline computer, go to `Wallet -> Master Public Keys` and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.
 
-In Electrum, go to `Wallet -> Master Public Keys` and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code, expand this window  to full screen and then you can read this code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are tied to you.
-
-## sending btc
+# 6. sending btc
 
 Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction off our offline computer using zbarcam, sign the transaction, and transfer the signed transaction back to our live computer, using zbarcam on our regular computer. Here we go!
+
+
 
 **boot online computer off "live" usb drive**
 
@@ -413,21 +423,13 @@ Now hold your offline computer screen up to your online computer camera
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
 
 
-## additional notes
+# additional notes
 
-# plausible deniability
+## plausible deniability
 
-If you have already been using a 12 word seed, then you can store those 12 words in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be a transaction history for those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.
+If you have already been using a 12 word seed, then you can use those 12 words as the words you store in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be significant transaction history with those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.
 
 You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction probably looks more like you just transferred it to a new wallet.
-
-
-\[1\] [https://glacierprotocol.org][glacierprotocol]
-
-\[2\] This drive is called the SETUP drive in the glacier protocol because that's all they use it for but we're going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.
-
-\[3\] Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
-
 
 {% if page.comments %}
 {% include disqus.html %}                     
