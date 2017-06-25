@@ -30,7 +30,7 @@ Using the masking tape and marker, label the usb drives as "live", "offline boot
 For this step you will need to take your small screwdriver and open up the netbook. If you're using the recommended dell netbook ([2016 Dell Inspiron 11.6"][dell]) then you can check out the following resources on how to do this:
 
 \- [video][video] (if link is down then check [here][video2])  
-\- [manual][manual] look at the "Removing the wireless card" section
+\- [manual][manual] (look at the "Removing the wireless card" section)
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
@@ -41,8 +41,6 @@ This step assumes that you're using a macbook for your regular computer, if that
 \- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu] *  
 \- verify its integrity
 
-
-\* Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
 
 {% highlight bash %}
 $ shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
@@ -71,20 +69,22 @@ You should now see your usb listed as an additional drive that wasn't there befo
 
 `$ diskutil unmountDisk ​USB-device-identifier-here`
 
-`​USB-device-identifier-here` will be something like `/dev/disk2`, it should be the last one but make sure to check
+"​USB-device-identifier-here" will be something like `/dev/disk2`, it should be the last one but make sure to check
 
 \- copy dmg to usb drive (**make sure to use the correct device identifier!!** *Using the wrong identifier could overwrite your hard drive*)
 
 `$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m`
 
-if = input file
-of = output file
-bs = block size
+if = input file  
+of = output file  
+bs = block size  
 
 \- click Ignore button 
   
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
-
+  
+  
+\* Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
 
 ### e. boot into the live system
 
@@ -108,14 +108,14 @@ $ sha256sum ubuntu-16.04.2-desktop-amd64.iso
 
 Again, the output should match what's listed in [http://releases.ubuntu.com/xenial/SHA256SUMS][SHA256SUMS]
 
-\- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen
-\- type "startup disk"
-\- click on Startup Disk Creator icon
-\- The “Source disc image” panel should show the .iso file you downloaded. If it doesn't then click the “Other” button and find it in the folder you downloaded it to.
-\- Check out the “Disk to use” field, you're going to see your usb drive show up in there
-\- plug in the "offline boot" usb drive
-\- select the "offline boot" drive in the "Disk to use" field
-\- click "Make Startup Disk"
+\- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen  
+\- type "startup disk"  
+\- click on Startup Disk Creator icon  
+\- The “Source disc image” panel should show the .iso file you downloaded. If it doesn't then click the “Other” button and find it in the folder you downloaded it to.  
+\- Check out the “Disk to use” field, you're going to see your usb drive show up in there  
+\- plug in the "offline boot" usb drive  
+\- select the "offline boot" drive in the "Disk to use" field  
+\- click "Make Startup Disk"  
 
 ### h. create the "offline apps" drive
 
