@@ -286,6 +286,8 @@ Now you should have 24 words and a password.
 
 ## 3. storing your mnemonic words and password
 
+->![figure][figure]<-
+
 ### a. offline storage
 
 *Store the first 12 words offline, in multiple locations.*
@@ -306,8 +308,6 @@ These words can be emailed to yourself, put on cloud storage, stored in a privat
 ### c. mindgrapes storage
 
 Remember your password as if your entire bank account depended on it.
-
-![figure][figure]
 
 
 ## 4. generating HD wallet
