@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/bitcoin/2017/06/21/how-to-generate-HD-wallet-offline-using-organic-entropy.html">
-  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="apples0" href="/feed.xml">
   
   
 </head>
@@ -24,7 +24,7 @@
   <div class="wrapper">
     
     
-    <a class="site-title" href="/">Your awesome title</a>
+    <a class="site-title" href="/">apples0</a>
   
     
       <nav class="site-nav">
@@ -80,11 +80,11 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h1 id="1-obtain-secure-offline-environment">1. obtain secure offline environment</h1>
+    <h2 id="1-obtain-secure-offline-environment">1. obtain secure offline environment</h2>
 
-<p>In order to accomplish this, I followed the Setup section of the <a href="https://glacierprotocol.org">glacier protocol</a> [1]. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we’re not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated.</p>
+<p>In order to accomplish this, I followed the Setup section of the <a href="https://glacierprotocol.org">glacier protocol</a>. They recommend using two latops in the protocol for maximum security, but I believe only one is fine since we’re not using any computer generated entropy and the machine will always stay offline. The generated extended keys (xpub and xpriv) will also be confirmed with two independent open source software packages, so any manufacturer-placed malware to display false extended keys would have to be extremely sophisticated.</p>
 
-<h2 id="a-get-the-required-equipment">a. get the required equipment</h2>
+<h3 id="a-get-the-required-equipment">a. get the required equipment</h3>
 
 <ul>
   <li>netbook with at least 2 usb ports, no ethernet (<a href="https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;ie=UTF8&amp;qid=1471767727&amp;sr=1-14&amp;keywords=inspiron&amp;refinements=p_85%3A2470955011">I recommend this one</a>)</li>
@@ -97,30 +97,28 @@
   <li>marker</li>
 </ul>
 
-<h2 id="b-label-your-drives">b. label your drives</h2>
+<h3 id="b-label-your-drives">b. label your drives</h3>
 
-<ul>
-  <li>using the masking tape and marker, label the usb drives as “live” [2], “offline boot” and “offline apps”</li>
-</ul>
+<p>Using the masking tape and marker, label the usb drives as “live”, “offline boot” and “offline apps”. In the glacier protocol the “live” drive is called the SETUP drive because that’s all they use it for but we’re going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.</p>
 
-<h2 id="c-remove-the-netbooks-wireless-card">c. remove the netbook’s wireless card</h2>
+<h3 id="c-remove-the-netbooks-wireless-card">c. remove the netbook’s wireless card</h3>
 
 <p>For this step you will need to take your small screwdriver and open up the netbook, if you’re using the recommended dell netbook (<a href="https://www.amazon.com/Dell-Inspiron-Celeron-Processor-Windows/dp/B01H7Q4LG8/ref=sr_1_14?s=pc&amp;ie=UTF8&amp;qid=1471767727&amp;sr=1-14&amp;keywords=inspiron&amp;refinements=p_85%3A2470955011">2016 Dell Inspiron 11.6”</a>) then you can check out the following resources on how to do this:</p>
 
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=nFYXQQPoh90">video</a> (if link is down then check <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">here</a>)</li>
-  <li><a href="https://github.com/apples0/blog/blob/master/dell_manual.pdf">manual</a> look at the “Removing the wireless card” section</li>
-</ul>
+<p>- <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">video</a> (if link is down then check <a href="https://www.youtube.com/watch?v=nFYXQQPoh90">here</a>)
+- <a href="https://github.com/apples0/blog/blob/master/dell_manual.pdf">manual</a> look at the “Removing the wireless card” section</p>
 
 <p>After removing the card, use the electrical tape to wrap up the exposed terminal leads. You’ll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.</p>
 
-<h2 id="d-create-the-live-drive">d. create the “live” drive</h2>
+<h3 id="d-create-the-live-drive">d. create the “live” drive</h3>
 
 <p>This step assumes that you’re using a macbook for your regular computer, if that’s not the case then take a look at the Setup section of the <a href="https://github.com/apples0/blog/blob/master/Glacier.pdf">glacier protocol</a> to learn how to do this.</p>
 
+<p>- download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a> *
+- verify its integrity</p>
+
 <ul>
-  <li>download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a> [3]</li>
-  <li>verify its integrity</li>
+  <li>Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!</li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>shasum -a 256 ubuntu-16.04.2-desktop-amd64.iso
@@ -128,37 +126,27 @@
 
 <p>The output should match what’s listed in <a href="http://releases.ubuntu.com/xenial/SHA256SUMS">http://releases.ubuntu.com/xenial/SHA256SUMS</a></p>
 
-<ul>
-  <li>convert the iso to dmg format</li>
-</ul>
+<p>- convert the iso to dmg format</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.2-desktop-amd64.img</code></pre></figure>
 
-<ul>
-  <li>determine the macOS device identifier for the boot USB</li>
-</ul>
+<p>- determine the macOS device identifier for the boot USB</p>
 
 <p><code class="highlighter-rouge">$ diskutil list</code></p>
 
-<ul>
-  <li>plug the “live” usb drive into your regular computer</li>
-</ul>
+<p>- plug the “live” usb drive into your regular computer</p>
 
 <p><code class="highlighter-rouge">$ diskutil list </code></p>
 
 <p>You should now see your usb listed as an additional drive that wasn’t there before. The device identifier ​is the part that comes before <code class="highlighter-rouge">(external, physical)</code> ​(for example <code class="highlighter-rouge">/dev/disk2</code>) ​</p>
 
-<ul>
-  <li>unmount the usb</li>
-</ul>
+<p>- unmount the usb</p>
 
 <p><code class="highlighter-rouge">$ diskutil unmountDisk ​USB-device-identifier-here</code></p>
 
 <p><code class="highlighter-rouge">​USB-device-identifier-here</code> will be something like <code class="highlighter-rouge">/dev/disk2</code>, it should be the last one but make sure to check</p>
 
-<ul>
-  <li>copy dmg to usb drive (<strong>make sure to use the correct device identifier!!</strong> <em>Using the wrong identifier could overwrite your hard drive</em>)</li>
-</ul>
+<p>- copy dmg to usb drive (<strong>make sure to use the correct device identifier!!</strong> <em>Using the wrong identifier could overwrite your hard drive</em>)</p>
 
 <p><code class="highlighter-rouge">$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m</code></p>
 
@@ -166,81 +154,53 @@
 of = output file
 bs = block size</p>
 
-<ul>
-  <li>click Ignore button</li>
-</ul>
+<p>- click Ignore button</p>
 
 <p>After the process has completed you’ll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn’t recognize it)</p>
 
-<h2 id="e-boot-into-the-live-system">e. boot into the live system</h2>
+<h3 id="e-boot-into-the-live-system">e. boot into the live system</h3>
 
-<ul>
-  <li>plug the “live” usb drive into your regular computer</li>
-  <li>restart your regular computer</li>
-  <li>hold down the option key</li>
-  <li>select the live drive, it will probably say “UEFI”. If there are two then it’s probably the last one, if you pick the wrong one don’t cry over your keyboard just try again.</li>
-</ul>
+<p>- plug the “live” usb drive into your regular computer<br />
+- restart your regular computer<br />
+- hold down the option key<br />
+- select the live drive, it will probably say “UEFI”. If there are two then it’s probably the last one, if you pick the wrong one don’t cry over your keyboard just try again.</p>
 
 <p>Note that your screen might flicker and jitter around a bit, that happened to me but it’s not big deal.</p>
 
-<h2 id="f-create-the-offline-boot-drive">f. create the “offline boot” drive</h2>
+<h3 id="f-create-the-offline-boot-drive">f. create the “offline boot” drive</h3>
 
-<ul>
-  <li>enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot</li>
-  <li>download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a> [3]</li>
-  <li>verify its integrity</li>
-</ul>
+<p>- enable networking by clicking on the WIFI cone on the top right and connect to your router/hotspot<br />
+- download ubuntu <a href="http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso">http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso</a><br />
+- verify its integrity</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sha256sum ubuntu-16.04.2-desktop-amd64.iso
 0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e  ubuntu-16.04.2-desktop-amd64.iso</code></pre></figure>
 
 <p>Again, the output should match what’s listed in <a href="http://releases.ubuntu.com/xenial/SHA256SUMS">http://releases.ubuntu.com/xenial/SHA256SUMS</a></p>
 
-<ul>
-  <li>
-    <p>open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen.</p>
-  </li>
-  <li>
-    <p>type “startup disk”</p>
-  </li>
-  <li>
-    <p>click on Startup Disk Creator icon</p>
-  </li>
-  <li>
-    <p>The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.</p>
-  </li>
-  <li>
-    <p>Check out the “Disk to use” field, you’re going to see your usb drive show up in there</p>
-  </li>
-  <li>
-    <p>plug in the “offline boot” usb drive</p>
-  </li>
-  <li>
-    <p>select the “offline boot” drive in the “Disk to use” field</p>
-  </li>
-  <li>
-    <p>click “Make Startup Disk”</p>
-  </li>
-</ul>
+<p>- open the Ubuntu search console by clicking the purple circle/swirl icon in the upper-left corner of the screen
+- type “startup disk”
+- click on Startup Disk Creator icon
+- The “Source disc image” panel should show the .iso file you downloaded. If it doesn’t then click the “Other” button and find it in the folder you downloaded it to.
+- Check out the “Disk to use” field, you’re going to see your usb drive show up in there
+- plug in the “offline boot” usb drive
+- select the “offline boot” drive in the “Disk to use” field
+- click “Make Startup Disk”</p>
 
-<h2 id="h-create-the-offline-apps-drive">h. create the “offline apps” drive</h2>
+<h3 id="h-create-the-offline-apps-drive">h. create the “offline apps” drive</h3>
 
-<p>You should still be in your live system, but if you’re not then complete section e again.</p>
+<p>You should still be in your live system, but if you’re not then complete <a href="#e.-boot-into-the-live-system">section e</a> again.</p>
 
 <h1 id="download-apt-get-dependencies">download apt-get dependencies</h1>
 
-<ul>
-  <li>add repositories</li>
-</ul>
+<p>- add repositories</p>
 
 <p>For some reason the live Ubuntu system doesn’t have the normal apt-get repositories added by default, so we need to add them:</p>
 
-<p><code class="highlighter-rouge">$ sudo apt-add-repository universe</code>
-<code class="highlighter-rouge">$ sudo apt-get update</code></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-add-repository universe
+<span class="gp">$ </span>sudo apt-get update</code></pre></figure>
 
-<ul>
-  <li>download the apps for the offline machine</li>
-</ul>
+<p>- download the apps for the offline machine</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip</code></pre></figure>
 
@@ -249,18 +209,14 @@ zbar-tools - this library contains the zbarcam command, used to decode QR codes 
 python-mnemonic - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script<br />
 python-qt4, python-pip - electrum dependencies</p>
 
-<ul>
-  <li>copy apps to folder</li>
-</ul>
+<p>- copy apps to folder</p>
 
-<p><code class="highlighter-rouge">$ mkdir ~/apps</code>
-<code class="highlighter-rouge">$ cp /var/cache/apt/archives/*.deb ~/apps</code></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>mkdir ~/apps
+<span class="gp">$ </span>cp /var/cache/apt/archives/<span class="k">*</span>.deb ~/apps</code></pre></figure>
 
 <h1 id="download-electrum">download electrum</h1>
 
-<ul>
-  <li>download electrum and its signature</li>
-</ul>
+<p>- download electrum and its signature</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>mkdir ~/electrum
 <span class="gp">$ </span><span class="nb">cd</span> ~/electrum
@@ -275,15 +231,11 @@ python-qt4, python-pip - electrum dependencies</p>
 
 <p>Click on the 7F9470E6 fingerprint and that will take you to a static page with the pgp public key block, copy everthing from <code class="highlighter-rouge">-----BEGIN PGP PUBLIC KEY BLOCK-----</code> to <code class="highlighter-rouge">-----END PGP PUBLIC KEY BLOCK-----</code> and save it as a file. You can name it <code class="highlighter-rouge">electrumpubkey.asc</code> or <code class="highlighter-rouge">numberonestunna.makethemsayuggghhh</code> it doesn’t really matter.</p>
 
-<ul>
-  <li>import gpg public key into your keyring</li>
-</ul>
+<p>- import gpg public key into your keyring</p>
 
 <p><code class="highlighter-rouge">$ gpg --import electrumpubkey.asc</code></p>
 
-<ul>
-  <li>verify the downloaded source was actually signed by Thomas and not some hacker.</li>
-</ul>
+<p>- verify the downloaded source was actually signed by Thomas and not some hacker.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>gpg --verify Electrum-2.8.3.tar.gz.asc Electrum-2.8.3.tar.gz
 
@@ -295,21 +247,16 @@ gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6</code></pre></figure>
 
-<ul>
-  <li>
-    <p>the important thing is that you see “Good signature from “Thomas Voegtlin (https://electrum.org) <a href="mailto:thomasv@electrum.org">thomasv@electrum.org</a>”, unless you’re a security nerd you won’t have a web of trust so disregard the scary warning message that appears afterwards.</p>
-  </li>
-  <li>
-    <p>download electrum dependencies using pip installer in download mode</p>
-  </li>
-</ul>
+<p>- the important thing is that you see “Good signature from “Thomas Voegtlin (https://electrum.org) &lt;thomasv@electrum.org&gt;”, unless you’re a security nerd you won’t have a web of trust so disregard the scary warning message that appears afterwards.</p>
+
+<p>- download electrum dependencies using pip installer in download mode</p>
 
 <p><code class="highlighter-rouge">$ sudo pip2 install --download ~/electrum ~/electrum/Electrum-2.8.3.tar.gz</code></p>
 
 <h1 id="download-bip39-mnemonic-generator">download BIP39 mnemonic generator</h1>
 
-<p><code class="highlighter-rouge">$ sudo apt-get install git</code><br />
-<code class="highlighter-rouge">$ git clone https://github.com/iancoleman/bip39.git</code></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-get install git
+<span class="gp">$ </span>git clone https://github.com/iancoleman/bip39.git</code></pre></figure>
 
 <h1 id="download-findlastwordpy-script">download findlastword.py script</h1>
 
@@ -321,84 +268,55 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6</cod
 
 <p>you should now have the folders <code class="highlighter-rouge">apps</code>, <code class="highlighter-rouge">electrum</code>, <code class="highlighter-rouge">bip39</code> and the file findlastword.py in the offline apps drive</p>
 
-<h1 id="boot-offline-computer">boot offline computer</h1>
+<h2 id="i-boot-offline-computer">i. boot offline computer</h2>
 
-<ul>
-  <li>
-    <p>plug in the “offline boot” into your offline computer</p>
-  </li>
-  <li>
-    <p>power it on and repeatedly press F2 until you enter BIOS setup</p>
-  </li>
-  <li>
-    <p>in the BIOS, disable “Fast Boot” and “Secure Boot”</p>
-  </li>
-  <li>
-    <p>click “File Browser Add Boot Option”</p>
-  </li>
-  <li>
-    <p>click on the USB drive and keep drilling down until you see “grubx64.efi” and the click on it</p>
-  </li>
-  <li>
-    <p>now disable the “Windows Boot Manager” option</p>
-  </li>
-  <li>
-    <p>click F10 to save and exit</p>
-  </li>
-</ul>
+<p>- plug in the “offline boot” into your offline computer<br />
+- power it on and repeatedly press F2 until you enter BIOS setup<br />
+- in the BIOS, disable “Fast Boot” and “Secure Boot”<br />
+- click “File Browser Add Boot Option”<br />
+- click on the USB drive and keep drilling down until you see “grubx64.efi” and the click on it<br />
+- now disable the “Windows Boot Manager” option<br />
+- click F10 to save and exit</p>
 
 <p>You should now boot into the grub menu, in order for the dell to boot you have to adjust the boot commands.</p>
 
-<ul>
-  <li>
-    <p>press “e” to edit the boot commands</p>
-  </li>
-  <li>
-    <p>delete “quiet splash”</p>
-  </li>
-  <li>
-    <p>in its place, add “nomodeset=0”</p>
-  </li>
-  <li>
-    <p>click F10 to save and boot</p>
-  </li>
-</ul>
+<p>- press “e” to edit the boot commands<br />
+- delete “quiet splash”<br />
+- in its place, add “nomodeset=0”<br />
+- click F10 to save and boot</p>
 
 <p>You should now successfully boot into the Ubuntu system. If the above steps don’t work for you then just use google and play around with the BIOS settings until it works.</p>
 
-<h1 id="install-apps">install apps</h1>
+<h2 id="j-install-apps">j. install apps</h2>
 
-<ul>
-  <li>plug in “offline apps” drive</li>
-  <li>copy everything on the drive to your home folder</li>
-</ul>
+<p>- plug in “offline apps” drive<br />
+- copy everything on the drive to your home folder</p>
 
-<p>** install the apt-get packages **</p>
+<p><strong>install the apt-get packages</strong></p>
 
 <p><code class="highlighter-rouge">$ sudo dpkg -i ~/apps/*.deb</code></p>
 
-<p>** install electrum **</p>
+<p><strong>install electrum</strong></p>
 
 <p><code class="highlighter-rouge">$ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz</code></p>
 
-<h1 id="generating-mnemonic-words-using-organic-entropy">generating mnemonic words using organic entropy</h1>
+<p>Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.</p>
+
+<h2 id="2-generating-mnemonic-words-using-organic-entropy">2. generating mnemonic words using organic entropy</h2>
 
 <p>If you have already been using a 12 word seed, use these words as your first 12 words (see <a href="#plausible-deniability">Plausible Deniability</a> section).</p>
 
-<h2 id="a-flip-that-coin-roll-some-dice">a. flip that coin, roll some dice</h2>
+<h3 id="a-flip-that-coin-roll-some-dice">a. flip that coin, roll some dice</h3>
 
 <p>In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome <a href="https://github.com/apples0/blog/blob/master/bip39-diceware.pdf">pdf</a> from <a href="https://github.com/taelfrinn/Bip39-diceware">https://github.com/taelfrinn/Bip39-diceware</a> thanks to github user taelfrinn. We’re rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296&gt;2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it’s important to always read the numbers in a consistent way.</p>
 
-<ul>
-  <li>
-    <p>flip a coin</p>
-  </li>
-  <li>roll the dice</li>
-  <li>record the word</li>
-  <li>repeat the above steps until you have recorded 23 words</li>
-</ul>
+<p>- flip a coin<br />
+- roll the dice<br />
+- record the word</p>
 
-<h2 id="b-find-the-24th-word">b. find the 24th word</h2>
+<p>- repeat the above steps until you have recorded 23 words</p>
+
+<h3 id="b-find-the-24th-word">b. find the 24th word</h3>
 
 <p>In order for our words to be fully BIP39 compatible, the checksum must be satisfied. We can use the <a href="https://github.com/apples0/blog/blob/master/findlastword.py">findlastword.py</a> script to do this. Input your 23 words and then run the following command:</p>
 
@@ -406,15 +324,19 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6</cod
 
 <p>There are a handful of candidate words, the way I picked it was to flip a coin and rolled a die. Heads would mean I would start from the top and tails would mean I would start from bottom, I would then select the word corresponding to what I rolled. So if I flipped a tails and rolled a two then I would select the second to last word. Or you can just pick one.</p>
 
-<h2 id="c-think-of-a-password">c. think of a password</h2>
+<h3 id="c-think-of-a-password">c. think of a password</h3>
 
 <p>Think of an easy to remember password that isn’t written down anywhere or associated with you online.</p>
 
-<h1 id="storing-your-keys">storing your keys</h1>
+<p>Now you should have 24 words and a password.</p>
 
-<p><img src="https://github.com/apples0/blog/raw/master/figure.png" alt="figure" /></p>
+<h2 id="3-storing-your-mnemonic-words-and-password">3. storing your mnemonic words and password</h2>
 
-<h2 id="a-offline-storage">a. offline storage</h2>
+<p align="center">
+  <img src="https://github.com/apples0/blog/raw/master/figure.png" alt="figure" />
+</p>
+
+<h3 id="a-offline-storage">a. offline storage</h3>
 
 <p><em>Store the first 12 words offline, in multiple locations.</em></p>
 
@@ -427,170 +349,128 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6</cod
   <li>writing the words in UV light on the inside of a closet or some other weird location</li>
 </ul>
 
-<h2 id="b-online-storage">b. online storage</h2>
+<h3 id="b-online-storage">b. online storage</h3>
 
 <p><em>Store the second 12 words online, in multiple locations.</em></p>
 
 <p>These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide. If you’re familiar with command line programs then you’ll find it really easy to use. Here is a <a href="https://www.youtube.com/watch?v=pW4BQK0LvJo">great tutorial</a>, if the link is down then click <a href="https://github.com/apples0/blog/raw/master/steghide.mp4">here</a>.</p>
 
-<h2 id="c-mindgrapes-storage">c. mindgrapes storage</h2>
+<h3 id="c-mindgrapes-storage">c. mindgrapes storage</h3>
 
-<p>Remember that one word like a motherfucker.</p>
+<p><em>Store the password in your head</em></p>
 
-<h1 id="generating-hd-wallet">generating HD wallet</h1>
+<p>Remember your password as if your entire bank account depended on it.</p>
 
-<p>Open the bip39-standalone.html file and input your 24 words and passphrase. Then select a password! Now you’ll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won’t actually use these, you’ll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare these values.</p>
+<h2 id="4-generating-hd-wallet">4. generating HD wallet</h2>
 
-<p>Open Electrum and do <code class="highlighter-rouge">Standard Wallet -&gt; I already have a seed</code> and then click the Options button and make sure that the checkboxed “Extend this seed with custom words” and “BIP39 seed” are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it’s no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:</p>
+<p>In your offline computer, open the bip39-standalone.html file and input your 24 words into the “BIP39 Mnemonic” field and your password into the “BIP39 Passphrase” field. Now scroll down and you’ll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won’t actually use these, you’ll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare the values.</p>
+
+<p>Open Electrum and do “Standard Wallet -&gt; I already have a seed” and then click the Options button and make sure that the checkboxed “Extend this seed with custom words” and “BIP39 seed” are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it’s no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:</p>
 
 <p><code class="highlighter-rouge">$ cat ~/.electrum/wallets/default_wallet</code></p>
 
 <p>You should see your xprv and xpub keys in plaintext down at the bottom. Make sure these keys match what you get from the bip39-standalone.html file! If they don’t match then you’re either mistakenly reading from the BIP39 Extended Keys instead of the Account Extended Keys or something is horribly, horribly wrong.</p>
 
-<h1 id="receiving-btc">receiving btc</h1>
+<h2 id="5-receiving-btc">5. receiving btc</h2>
 
-<p>In Electrum, go to <code class="highlighter-rouge">Wallet -&gt; Master Public Keys</code> and now you can use this to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code, expand this window  to full screen and then you can read this code off with your phone’s camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn’t go sharing everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are tied to you.</p>
+<p>In Electrum in your offline computer, go to “Wallet -&gt; Master Public Keys” and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone’s camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn’t go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.</p>
 
-<h1 id="sending-btc">sending btc</h1>
+<h2 id="6-sending-btc">6. sending btc</h2>
 
-<p>Sending BTC is a more involved process. We will be using our regular computer booted off the “live” usb to create a transaction, then we will read this transaction off our offline computer using zbarcam, sign the transaction, and transfer the signed transaction back to our live computer, using zbarcam on our regular computer. Here we go!</p>
+<p>Sending BTC is a more involved process. We will be using our regular computer booted off the “live” usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. A high-level summary of the steps are shown below:</p>
 
-<p><strong>boot online computer off “live” usb drive</strong></p>
+<p>a. boot online computer off “live” usb drive
+b. boot offline computer off “offline boot” usb drive
+c. transfer master public key to online computer
+d. create unsigned transaction on the online computer
+e. transfer unsigned transaction to offline computer
+f. sign transaction
+g. transfer signed transaction to the online computer
+h. broadcast transaction</p>
 
-<p><code class="highlighter-rouge">$ sudo apt-add-repository universe</code><br />
-<code class="highlighter-rouge">$ sudo apt-get update</code><br />
-<code class="highlighter-rouge">$ sudo apt-get install qrencode zbar-tools steghide python-pip python-qt4</code></p>
+<p>Here we go!</p>
 
-<ul>
-  <li>follow <a href="#download-electrum">download electrum</a> step to download, verify and install electrum</li>
-</ul>
+<h3 id="a-boot-online-computer-off-live-usb-drive">a. boot online computer off “live” usb drive**</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-add-repository universe
+<span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get install qrencode zbar-tools steghide python-pip python-qt4</code></pre></figure>
+
+<p>- follow <a href="#download-electrum">download electrum</a> step to download, verify and install electrum</p>
 
 <p>Unfortunately the macbook camera (called facetimehd) does not work in Linux, however thankfully github user patjak came up with a solution outlined <a href="https://github.com/patjak/bcwc_pcie/wiki/Get-Started">here</a>. Using these instructions I created this <a href="https://github.com/apples0/blog/blob/master/enable_facetimehd_camera.sh">script</a>.</p>
 
-<p><code class="highlighter-rouge">$ sudo apt-add-repository universe</code><br />
-<code class="highlighter-rouge">$ sudo apt-get update</code><br />
-<code class="highlighter-rouge">$ wget https://github.com/apples0/blog/raw/master/enable_facetimehd_camera.sh</code><br />
-<code class="highlighter-rouge">$ sudo bash enable_facetimehd_camera.sh</code></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-add-repository universe
+<span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>wget https://github.com/apples0/blog/raw/master/enable_facetimehd_camera.sh
+<span class="gp">$ </span>sudo bash enable_facetimehd_camera.sh</code></pre></figure>
 
 <p>To test that the above works, type the command <code class="highlighter-rouge">$ zbarcam</code>, if everything worked out then you should see a dialog pop up showing the camera output.</p>
 
-<p><strong>boot offline computer off “offline boot” usb drive</strong></p>
+<h3 id="b-boot-offline-computer-off-offline-boot-usb-drive">b. boot offline computer off “offline boot” usb drive**</h3>
 
-<ul>
-  <li>copy apps and electrum folders to home directory</li>
-  <li>install apps and electrum as in the <a href="#install-apps">install apps</a> section</li>
-</ul>
+<p>- copy apps and electrum folders to home directory<br />
+- install apps and electrum as in the <a href="#install-apps">install apps</a> section</p>
 
-<h2 id="the-process">the process</h2>
+<h3 id="c-transfer-master-public-key-to-online-computer">c. transfer master public key to online computer</h3>
 
-<ol>
-  <li>get master public key on online computer</li>
-</ol>
+<p><em>on the online computer:</em></p>
 
-<p>on the online computer:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>- open Electrum
-
-- Standard Wallet -&gt; Use public or private keys
-
-- click on QR code icon
-</code></pre>
-</div>
+<p>- open Electrum<br />
+- Standard Wallet -&gt; Use public or private keys<br />
+- click on QR code icon</p>
 
 <p>The camera should appear, now you’re ready to receive the master public key as a QR code.</p>
 
-<p>on the offline computer:</p>
+<p><em>on the offline computer:</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- open Electrum
-
-- Standard Wallet -&gt; I already have a seed
-
-- Wallet -&gt; Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)
-
-- Click the QR code icon
-</code></pre>
-</div>
+<p>- open Electrum<br />
+- Standard Wallet -&gt; I already have a seed<br />
+- Wallet -&gt; Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)<br />
+- Click the QR code icon</p>
 
 <p>Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a “watching wallet” on your online computer.</p>
 
-<ol>
-  <li>
-    <p>create unsigned transaction on the online computer</p>
+<h3 id="d-create-unsigned-transaction-on-the-online-computer">d. create unsigned transaction on the online computer</h3>
 
-    <ul>
-      <li>
-        <p>go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.</p>
-      </li>
-      <li>
-        <p>click the Preview button</p>
-      </li>
-      <li>
-        <p>on the dialog that pops up, click the QR code button and maximize the resulting dialog so it’s easier to scan</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>transfer unsigned transaction to offline computer</p>
-  </li>
-</ol>
+<p>- go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.<br />
+- click the Preview button<br />
+- on the dialog that pops up, click the QR code button and maximize the resulting dialog so it’s easier to scan</p>
 
-<p>on the offline computer:</p>
+<h3 id="e-transfer-unsigned-transaction-to-offline-computer">e. transfer unsigned transaction to offline computer</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- Tools -&gt; Load Transaction -&gt; From QR code
-</code></pre>
-</div>
+<p><em>on the offline computer:</em></p>
+
+<p>- Tools -&gt; Load Transaction -&gt; From QR code</p>
 
 <p>Now hold your offline computer camera to the online computer screen and read the QR code</p>
 
-<ol>
-  <li>
-    <p>sign transaction</p>
+<h3 id="f-sign-transaction">f. sign transaction</h3>
 
-    <ul>
-      <li>
-        <p>make sure everything looks good</p>
-      </li>
-      <li>
-        <p>click the Sign button</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>transfer signed transaction to the online computer</p>
+<p>- make sure everything looks good<br />
+- click the Sign button</p>
 
-    <ul>
-      <li>after hitting the Sign button, click the QR code icon and maximize it</li>
-    </ul>
-  </li>
-</ol>
+<h3 id="g-transfer-signed-transaction-to-the-online-computer">g. transfer signed transaction to the online computer</h3>
 
-<p>on the online computer:</p>
+<p>- after hitting the Sign button, click the QR code icon and maximize it</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- Tools -&gt; Load Transaction -&gt; From QR code
-</code></pre>
-</div>
+<p><em>on the online computer:</em></p>
+
+<p>- Tools -&gt; Load Transaction -&gt; From QR code</p>
 
 <p>Now hold your offline computer screen up to your online computer camera</p>
 
-<ol>
-  <li>broadcast to the network</li>
-</ol>
+<h3 id="h-broadcast-to-the-network">h. broadcast to the network</h3>
 
 <p>click the Broadcast button, it should say something like “Payment sent” and show the Transaction ID</p>
 
-<h1 id="additional-notes">additional notes</h1>
+<h2 id="additional-notes">additional notes</h2>
 
-<h2 id="plausible-deniability">plausible deniability</h2>
+<h3 id="plausible-deniability">plausible deniability</h3>
 
-<p>If you have already been using a 12 word seed, then you can store those 12 words in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be a transaction history for those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.</p>
+<p>If you have already been using a 12 word seed, then you can use those 12 words as the words you store in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be significant transaction history with those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.</p>
 
 <p>You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction probably looks more like you just transferred it to a new wallet.</p>
-
-<p>[1] <a href="https://glacierprotocol.org">https://glacierprotocol.org</a></p>
-
-<p>[2] This drive is called the SETUP drive in the glacier protocol because that’s all they use it for but we’re going to be using it later on to communicate with our offline machine (via QR codes) and to broadcast transactions to the network.</p>
-
-<p>[3] Note the the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!</p>
 
 
   </div>
@@ -605,14 +485,14 @@ Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6</cod
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Your awesome title</h2>
+    <h2 class="footer-heading">apples0</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
           <li>
             
-              Your awesome title
+              apples0
             
             </li>
             
