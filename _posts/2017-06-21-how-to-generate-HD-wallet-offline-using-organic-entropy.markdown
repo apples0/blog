@@ -193,7 +193,7 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
 {% endhighlight %}
 
-\- the important thing is that you see "Good signature from "Thomas Voegtlin (https://electrum.org) \<thomasv@electrum.org\>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
+The important thing here is that you see the text "Good signature from "Thomas Voegtlin (https://electrum.org) \<thomasv@electrum.org\>", unless you're a security nerd you won't have a web of trust so disregard the scary warning message that appears afterwards.
 
 \- download electrum dependencies using pip installer in download mode
 
@@ -214,11 +214,11 @@ In order to satisfy the BIP39 checksum, we must choose a suitable last word. We 
 
 # copy all of this junk to the offline apps usb
 
-you should now have the folders `apps`, `electrum`, `bip39` and the file findlastword.py in the offline apps drive
+you should now have the folders `apps`, `electrum`, `bip39` and the file `findlastword.py` in the offline apps drive
 
 ## i. boot offline computer
 
-\- plug in the "offline boot" into your offline computer  
+\- plug in the "offline boot" usb drive into your offline computer  
 \- power it on and repeatedly press F2 until you enter BIOS setup  
 \- in the BIOS, disable "Fast Boot" and "Secure Boot"  
 \- click "File Browser Add Boot Option"  
@@ -246,7 +246,9 @@ You should now successfully boot into the Ubuntu system. If the above steps don'
 
 **install electrum**
 
-`$ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz`
+{% highlight bash %}
+$ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz
+{% endhighlight %}
 
 Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.
 
@@ -257,13 +259,13 @@ If you have already been using a 12 word seed, use these words as your first 12 
 
 ### a. flip that coin, roll some dice
 
-In this section we will be using the coin and the dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
+In this section we will be using a coin and dice to generate the seed words. We will be using this awesome [pdf][dicewarepdf] from [https://github.com/taelfrinn/Bip39-diceware][diceware] thanks to github user taelfrinn. We're rolling 4 dies because it can produce 1296 different permutations (6^4=1296), and this is a little more than half of 2048. To cover the remaining words we flip a coin and have dice rolls with heads represent the first 1296 words and dice rolls with tails cover the remaining. Because there are more combinations than we need (2*1296>2048), we simply ignore dice rolls with tails that are above 4362. Although to be honest, when I rolled over that number I would just reverse the way I read off the numbers so T4672 would turn into T2764. Besides this case, it's important to always read the numbers in a consistent way.
 
-\- flip a coin  
-\- roll the dice  
-\- record the word  
+- flip a coin  
+- roll the dice  
+- record the word  
 
-\- repeat the above steps until you have recorded 23 words  
+- repeat the above steps until you have recorded 23 words  
 
 ### b. find the 24th word
 
@@ -271,7 +273,7 @@ In order for our words to be fully BIP39 compatible, the checksum must be satisf
 
 `$ python findlastword.py`
 
-There are a handful of candidate words, the way I picked it was to flip a coin and rolled a die. Heads would mean I would start from the top and tails would mean I would start from bottom, I would then select the word corresponding to what I rolled. So if I flipped a tails and rolled a two then I would select the second to last word. Or you can just pick one.
+There are a handful of words that will satisfy the checksum, the way I picked the word was to flip a coin and roll a die. Heads would mean I would start from the top and tails would mean I would start from bottom, I would then select the word corresponding to what I rolled. So if I flipped a tails and rolled a two then the second to last word would be selected. Or you can just pick one.
 
 ### c. think of a password
 
@@ -301,7 +303,29 @@ It's important to write the words down on paper instead of using something like 
 
 *Store the second 12 words online, in multiple locations.*
 
-These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide. If you're familiar with command line programs then you'll find it really easy to use. Here is a [great tutorial][steghidetutorial], if the link is down then click [here][steghidetutorial2].
+These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide.
+
+#### embedding words in image
+
+{% highlight bash %}
+$ echo "rival garden idea assault alter expire protect guess goddess thought chase illegal" >> file.txt
+$ steghide embed -cf cat.jpg -ef file.txt
+{% endhighlight %}
+
+`cf` = cover file  
+`ef` = embedded file
+
+The program also allows you to protect your data with a password if choose, but this is optional.
+
+#### extracting words from image
+
+{% highlight bash %}
+$ steghide extract -sf cat.jpg
+{% endhighlight %}
+
+`sf` = steganographic file (cover file + embedded file)
+
+Here is a [great tutorial][steghidetutorial] if you need more detail, if the link is down then click [here][steghidetutorial2].
 
 ### c. mindgrapes storage
 
@@ -314,7 +338,7 @@ Remember your password as if your entire bank account depended on it.
 
 In your offline computer, open the bip39-standalone.html file and input your 24 words into the "BIP39 Mnemonic" field and your password into the "BIP39 Passphrase" field. Now scroll down and you'll see two sets of extended keys, the BIP32 Extended Keys are the ones representing the very root so they are the master ones. However in practice you won't actually use these, you'll use the Account Extended Keys to dynamically generate public addresses without requiring the private key and these are derived from the BIP32 Extended Keys. Now that you see the extended keys and the generated addresses down at the bottom you can input your words into Electrum and compare the values.
 
-Open Electrum and do "Standard Wallet -> I already have a seed" and then click the Options button and make sure that the checkboxed "Extend this seed with custom words" and "BIP39 seed" are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it's no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:
+Open Electrum and do "Standard Wallet -> I already have a seed" and then click the Options button and make sure that the checkboxes "Extend this seed with custom words" and "BIP39 seed" are both checked. If Electrum crashes at any point just open it up again, this happens every now and again and it's no big deal. Now that your wallet is created you can check to see if your keys match. Open up a terminal (Ctrl-Alt-T in Ubuntu) and type the following command:
 
 `$ cat ~/.electrum/wallets/default_wallet`  
 
@@ -423,7 +447,7 @@ click the Broadcast button, it should say something like "Payment sent" and show
 
 If you have already been using a 12 word seed, then you can use those 12 words as the words you store in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be significant transaction history with those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.
 
-You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction probably looks more like you just transferred it to a new wallet.
+You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction will probably appear more like you just transferred it to a new wallet.
 
 {% if page.comments %}
 {% include disqus.html %}                     
