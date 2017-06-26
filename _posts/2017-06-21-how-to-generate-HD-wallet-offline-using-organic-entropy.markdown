@@ -307,7 +307,7 @@ It's important to write the words down on paper instead of using something like 
 
 *Store the second 12 words online, in multiple locations.*
 
-These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide.
+These words can be emailed to yourself, put on cloud storage, stored in a private repo, ftp, whatever. An important additional step which I like to do, is to hide these words in an image using the program steghide and then store the image online.
 
 #### embedding words in image
 
