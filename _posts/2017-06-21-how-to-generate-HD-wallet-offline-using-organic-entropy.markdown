@@ -32,7 +32,7 @@ For this step you will need to take your small screwdriver and open up the netbo
 \- [video][video] (if link is down then check [here][video2])  
 \- [manual][manual] (look at the "Removing the wireless card" section)
 
-After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
+After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out. Also note that both wireless and bluetooth functionality are contained in the same card.
 
 ### d. create the "online" drive
 
@@ -465,7 +465,6 @@ Now hold your offline computer screen up to your online computer camera
 *on the online computer:*
 
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
-
 
 <br/>
 <br/>
