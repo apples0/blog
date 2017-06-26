@@ -352,8 +352,8 @@ In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and n
 
 Sending BTC is a more involved process. We will be using our regular computer booted off the "online" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our online computer using another QR code. A high-level summary of the steps are shown below:
 
-a. boot online computer off of "online" usb drive  
-b. boot offline computer off of "offline boot" usb drive  
+a. prepare online computer
+b. prepare offline computer
 c. transfer master public key to online computer  
 d. create unsigned transaction on the online computer  
 e. transfer unsigned transaction to offline computer  
@@ -363,7 +363,9 @@ h. broadcast transaction
 
 Here we go!
 
-### a. boot online computer off of "online" usb drive
+### a. prepare online computer
+
+\- boot online computer off of "online" usb drive
 
 {% highlight bash %}
 $ sudo apt-add-repository universe
@@ -384,8 +386,9 @@ $ sudo bash enable_facetimehd_camera.sh
 
 To test that the above works, type the command `$ zbarcam`, if everything worked out then you should see a dialog pop up showing the camera output.
 
-### b. boot offline computer off of "offline boot" usb drive
+### b. prepare offline computer
 
+\- boot offline computer off of "offline boot" usb drive
 \- copy apps and electrum folders to home directory  
 \- install apps and electrum as in the [install apps](#j-install-apps) section  
 
