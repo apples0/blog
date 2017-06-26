@@ -3,7 +3,7 @@ layout: post
 title:  "how to generate HD wallet offline using organic entropy"
 date:   2017-06-21
 categories: bitcoin
-comments: false
+comments: true
 ---
 
 ## 1. obtain secure offline environment
