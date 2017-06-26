@@ -40,7 +40,7 @@ This step assumes that you're using a macbook for your regular computer, if that
 
 \- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu]  
 
-&nbsp;&nbsp;&nbsp;Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!
+(Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!)
 
 \- verify its integrity
 
@@ -77,7 +77,7 @@ You should now see your usb listed as an additional drive that wasn't there befo
 
 
 {% highlight bash %}
-$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​ bs=1m
+$ sudo dd if=ubuntu-16.04.2-desktop-amd64.img.dmg of=​USB-device-identifier-here ​bs=1m
 {% endhighlight %}
 
 if = input file  
@@ -91,12 +91,13 @@ After the process has completed you'll get an error saying the disk is not recog
 
 ### e. boot into the live system
 
+\- shut down your regular computer
 \- plug the "live" usb drive into your regular computer  
-\- restart your regular computer  
+\- turn on your regular computer  
 \- hold down the option key  
 \- select the live drive, it will probably say "UEFI". If there are two then it's probably the last one, if you pick the wrong one don't cry over your keyboard just try again.  
 
-Note that your screen might flicker and jitter around a bit, that happened to me but it's not big deal.
+Note that your screen might flicker and jitter around a bit when you're in the ubuntu system on a macbook, this happens to me but it's not big deal.
 
 ### f. create the "offline boot" drive
 
@@ -115,14 +116,14 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 \- type "startup disk"  
 \- click on Startup Disk Creator icon  
 \- The “Source disc image” panel should show the .iso file you downloaded. If it doesn't then click the “Other” button and find it in the folder you downloaded it to.  
-\- Check out the “Disk to use” field, you're going to see your usb drive show up in there  
+\- identify the “Disk to use” field, you're going to see your usb drive show up in there  
 \- plug in the "offline boot" usb drive  
 \- select the "offline boot" drive in the "Disk to use" field  
 \- click "Make Startup Disk"  
 
 ### h. create the "offline apps" drive
 
-You should still be in your live system, but if you're not then complete [section e](#e.-boot-into-the-live-system) again.
+You should still be in your live system, but if you're not then complete [section e](#e-boot-into-the-live-system) again.
 
 # download apt-get dependencies
 
@@ -135,6 +136,7 @@ $ sudo apt-add-repository universe
 $ sudo apt-get update
 {% endhighlight %}
 
+
 \- download the apps for the offline machine
 
 {% highlight bash %}
@@ -145,6 +147,7 @@ $ sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip
 `zbar-tools` - this library contains the zbarcam command, used to decode QR codes from text  
 `python-mnemonic` - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script  
 `python-qt4`, `python-pip` - electrum dependencies  
+
 
 \- copy apps to folder
 
