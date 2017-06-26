@@ -478,6 +478,9 @@ If you have already been using a 12 word seed, then you can use those 12 words a
 
 You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction will probably appear more like you just transferred it to a new wallet.
 
+<br/>
+<br/>
+
 {% if page.comments %}
 {% include disqus.html %}                     
 {% endif %}
