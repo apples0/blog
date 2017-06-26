@@ -315,7 +315,7 @@ $ steghide embed -cf cat.jpg -ef file.txt
 `cf` = cover file  
 `ef` = embedded file
 
-The program also allows you to protect your data with a password if choose, but this is optional.
+The program also allows you to protect your data with a password if you choose, but this is optional.
 
 #### extracting words from image
 
@@ -352,14 +352,14 @@ In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and n
 
 Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. A high-level summary of the steps are shown below:
 
-a. boot online computer off "live" usb drive
-b. boot offline computer off "offline boot" usb drive
-c. transfer master public key to online computer
-d. create unsigned transaction on the online computer
-e. transfer unsigned transaction to offline computer
-f. sign transaction
-g. transfer signed transaction to the online computer
-h. broadcast transaction
+a. boot online computer off "live" usb drive  
+b. boot offline computer off "offline boot" usb drive  
+c. transfer master public key to online computer  
+d. create unsigned transaction on the online computer  
+e. transfer unsigned transaction to offline computer  
+f. sign transaction  
+g. transfer signed transaction to the online computer  
+h. broadcast transaction  
 
 Here we go!
 
