@@ -475,7 +475,7 @@ click the Broadcast button, it should say something like "Payment sent" and show
 
 If you have already been using a 12 word seed, then you can use those 12 words as the words you store in multiple locations offline. By transferring its funds to your new wallet you will have real plausible deniability because there will be significant transaction history with those words. The offline words are also the most likely to be found by someone who would want to hit you with a wrench.
 
-You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction will probably appear more like you just transferred it to a new wallet.
+You might also want to transfer your existing bitcoin to your new wallet incrementally over time to make the history seem more realistic, like you were selling them off to people on localbitcoins.com or something. One large transaction will probably appear more like you just transferred everything to a new wallet that you still own.
 
 <br/>
 <br/>
