@@ -403,12 +403,15 @@ The camera should appear, now you're ready to receive the master public key as a
 
 \- open Electrum  
 \- Standard Wallet -> I already have a seed  
+\- collect and input your words, using the online computer with steghide as needed    
 \- Wallet -> Master Public Keys (Electrum sometimes crashes here, just start it up again and try again)  
 \- Click the QR code icon  
 
 Now maximize the dialog to make the QR code take up the whole screen and then hold your offline computer screen to your online computer camera to scan the code. Now you should have a "watching wallet" on your online computer.
 
 ### d. create unsigned transaction on the online computer
+
+*on the online computer:*
 
 \- go to the Send tab and enter the receiving address in the Pay to field and the Amount in mBTC.  
 \- click the Preview button  
@@ -424,10 +427,14 @@ Now hold your offline computer camera to the online computer screen and read the
 
 ### f. sign transaction
 
+*on the offline computer:*
+
 \- make sure everything looks good  
 \- click the Sign button  
 
 ### g. transfer signed transaction to the online computer
+
+*on the offline computer:*
 
 \- after hitting the Sign button, click the QR code icon and maximize it  
 
@@ -439,7 +446,10 @@ Now hold your offline computer screen up to your online computer camera
 
 ### h. broadcast to the network
 
+*on the online computer:*
+
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
+
 
 ## additional notes
 
