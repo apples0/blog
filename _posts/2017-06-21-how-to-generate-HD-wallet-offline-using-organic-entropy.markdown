@@ -23,7 +23,7 @@ In order to accomplish this, I followed the Setup section of the [glacier protoc
 
 ### b. label your drives
 
-Using the masking tape and marker, label the usb drives as "live", "offline boot" and "offline apps". In the glacier protocol the "live" drive is named SETUP because that's all they ever use it for but we're going to be using this drive again and again, in order to communicate with our offline machine (via QR codes) and broadcast transactions to the network.
+Using the masking tape and marker, label the usb drives as "online", "offline boot" and "offline apps". In the glacier protocol the "online" drive is named SETUP because that's all they ever use it for but we're going to be using this drive again and again, in order to communicate with our offline machine (via QR codes) and broadcast transactions to the network.
 
 ### c. remove the netbook's wireless card
 
@@ -34,7 +34,7 @@ For this step you will need to take your small screwdriver and open up the netbo
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out.
 
-### d. create the "live" drive
+### d. create the "online" drive
 
 This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
 
@@ -61,7 +61,7 @@ $ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.
 
 `$ diskutil list`
 
-\- plug the "live" usb drive into your regular computer
+\- plug the "online" usb drive into your regular computer
 
 `$ diskutil list `
 
@@ -89,13 +89,13 @@ bs = block size
 After the process has completed you'll get an error saying the disk is not recognized, just click the Ignore button (you just made a drive with a Linux filesystem so it makes sense that your mac doesn't recognize it)
   
 
-### e. boot into the live system
+### e. boot into the "online" Ubuntu system
 
 \- shut down your regular computer
-\- plug the "live" usb drive into your regular computer  
+\- plug the "online" usb drive into your regular computer  
 \- turn on your regular computer  
 \- hold down the option key  
-\- select the live drive, it will probably say "UEFI". If there are two then it's probably the last one, if you pick the wrong one don't cry over your keyboard just try again.  
+\- select the "online" drive, it will probably say "UEFI". If there are two then it's probably the last one, if you pick the wrong one don't cry over your keyboard just try again.  
 
 Note that your screen might flicker and jitter around a bit when you're in the ubuntu system on a macbook, this happens to me but it's not big deal.
 
@@ -123,13 +123,13 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 
 ### h. create the "offline apps" drive
 
-You should still be in your live system, but if you're not then complete [section e](#e-boot-into-the-live-system) again.
+You should still be in the "online" Ubuntu system, but if you're not then complete [section e](#e-boot-into-the-online-system) again.
 
 # download apt-get dependencies
 
 \- add repositories
 
-For some reason the live Ubuntu system doesn't have the normal apt-get repositories added by default, so we need to add them:
+For some reason the usb booted Ubuntu system doesn't have the normal apt-get repositories added by default, so we need to add them:
 
 {% highlight bash %}
 $ sudo apt-add-repository universe
@@ -350,9 +350,9 @@ In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and n
 
 ## 6. sending btc
 
-Sending BTC is a more involved process. We will be using our regular computer booted off the "live" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our live computer using another QR code. A high-level summary of the steps are shown below:
+Sending BTC is a more involved process. We will be using our regular computer booted off the "online" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our online computer using another QR code. A high-level summary of the steps are shown below:
 
-a. boot online computer off of "live" usb drive  
+a. boot online computer off of "online" usb drive  
 b. boot offline computer off of "offline boot" usb drive  
 c. transfer master public key to online computer  
 d. create unsigned transaction on the online computer  
@@ -363,7 +363,7 @@ h. broadcast transaction
 
 Here we go!
 
-### a. boot online computer off of "live" usb drive
+### a. boot online computer off of "online" usb drive
 
 {% highlight bash %}
 $ sudo apt-add-repository universe
