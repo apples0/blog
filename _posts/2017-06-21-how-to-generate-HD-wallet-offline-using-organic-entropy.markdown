@@ -312,6 +312,7 @@ These words can be emailed to yourself, put on cloud storage, stored in a privat
 #### embedding words in image
 
 {% highlight bash %}
+$ sudo apt-get install steghide  
 $ echo "rival garden idea assault alter expire protect guess goddess thought chase illegal" >> file.txt
 $ steghide embed -cf cat.jpg -ef file.txt
 {% endhighlight %}
