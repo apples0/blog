@@ -250,9 +250,11 @@ You should now successfully boot into the Ubuntu system. If the above steps don'
 $ sudo pip2 install --no-index --find-links ~/electrum/ ~/electrum/Electrum-2.8.3.tar.gz
 {% endhighlight %}
 
-Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.
+Congratulations, now you have a secure offline environment where you can generate your master public key and sign transactions.  
 
-
+<br/>
+<br/>
+   
 ## 2. generating mnemonic words using organic entropy
 
 If you have already been using a 12 word seed, use these words as your first 12 words (see [Plausible Deniability](#plausible-deniability) section).
@@ -281,6 +283,8 @@ Think of an easy to remember password that isn't written down anywhere or associ
 
 Now you should have 24 words and a password.
 
+<br/>
+<br/>
 
 ## 3. storing your mnemonic words and password
 
@@ -333,6 +337,8 @@ Here is a [great tutorial][steghidetutorial] if you need more detail, if the lin
 
 Remember your password as if your entire bank account depended on it.
 
+<br/>
+<br/>
 
 ## 4. generating HD wallet
 
@@ -344,9 +350,15 @@ Open Electrum and do "Standard Wallet -> I already have a seed" and then click t
 
 You should see your xprv and xpub keys in plaintext down at the bottom. Make sure these keys match what you get from the bip39-standalone.html file! If they don't match then you're either mistakenly reading from the BIP39 Extended Keys instead of the Account Extended Keys or something is horribly, horribly wrong.
 
+<br/>
+<br/>
+
 ## 5. receiving btc
 
 In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and now you can use this xpub extended key to generate receiving addresses. You can even click on the little QR code icon on the bottom right of the dialog to reveal a QR code. You can then maximize this window and read the code off with your phone's camera. I know that the MyCelium and Electrum android apps allow you to import this address, and then you can receive BTC and monitor your account without needing to put any of the private keys on the hot device. However keep in mind that the Master Public Key is still considered a sensitive piece of information that you shouldn't go sharing around everywhere, because it allows anyone to see how much unspent BTC you control and which receiving addresses and transactions are linked to you.
+
+<br/>
+<br/>
 
 ## 6. sending btc
 
@@ -453,6 +465,9 @@ Now hold your offline computer screen up to your online computer camera
 
 click the Broadcast button, it should say something like "Payment sent" and show the Transaction ID
 
+
+<br/>
+<br/>
 
 ## additional notes
 
