@@ -352,8 +352,8 @@ In Electrum in your offline computer, go to "Wallet -> Master Public Keys" and n
 
 Sending BTC is a more involved process. We will be using our regular computer booted off the "online" usb to create a transaction, then we will read this transaction onto our offline computer through a QR code, sign the transaction, and then transfer the signed transaction back to our online computer using another QR code. A high-level summary of the steps are shown below:
 
-a. prepare online computer
-b. prepare offline computer
+a. prepare online computer  
+b. prepare offline computer  
 c. transfer master public key to online computer  
 d. create unsigned transaction on the online computer  
 e. transfer unsigned transaction to offline computer  
