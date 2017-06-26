@@ -365,7 +365,7 @@ Here we go!
 
 ### a. prepare online computer
 
-\- boot online computer off of "online" usb drive
+\- boot online computer off of "online" usb drive  
 
 {% highlight bash %}
 $ sudo apt-add-repository universe
@@ -388,7 +388,7 @@ To test that the above works, type the command `$ zbarcam`, if everything worked
 
 ### b. prepare offline computer
 
-\- boot offline computer off of "offline boot" usb drive
+\- boot offline computer off of "offline boot" usb drive  
 \- copy apps and electrum folders to home directory  
 \- install apps and electrum as in the [install apps](#j-install-apps) section  
 
