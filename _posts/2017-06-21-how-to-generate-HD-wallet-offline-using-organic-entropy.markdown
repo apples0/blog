@@ -8,12 +8,12 @@ comments: true
 
 ## 1. obtain secure offline environment
 
-In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. The glacier protocol recommends using two laptops in the protocol for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the generated keys will be confirmed with two independent open source software packages. Any manufacturer-placed malware to display false keys would have to be extremely sophisticated, but if you require further peace of mind then you can always duplicate these steps on another system.
+In order to accomplish this, I followed the Setup section of the [glacier protocol][glacierprotocol]. The glacier protocol recommends using two laptops for maximum security, but I believe only one is fine since we're not using any computer generated entropy and the generated keys will be confirmed with two independent open source software packages. Any manufacturer-placed malware to display false keys would have to be extremely sophisticated, but if you require further peace of mind then you can always duplicate these steps on another system.
 
 ### a. get the required equipment
 
 - netbook with at least 2 usb ports, no ethernet ([I recommend this one][dell])
-- 3 usb drives, at least 2GB ([I used these ones (8GB)][usb])
+- 3 usb drives, at least 2GB ([I used these 8GB ones][usb])
 - coin
 - dice (4 dies), (buy the [red ones][dice], note that the purple ones will NOT work)
 - small screwdriver [(one of these should work)][screwdriver]
@@ -34,13 +34,13 @@ For this step you will need to take your small screwdriver and open up the netbo
 
 After removing the card, use the electrical tape to wrap up the exposed terminal leads. You'll notice they make you remove the battery before removing the card, I think this is to prevent damage to the circuitry when pulling the card out. Also note that both wireless and bluetooth functionality are contained in the same card.
 
-### d. create the "online" drive
+### d. create the "online" bootable drive
 
-This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to do this.
+This step assumes that you're using a macbook for your regular computer, if that's not the case then take a look at the Setup section of the [glacier protocol][glacier] to learn how to create a bootable Ubuntu usb using Linux or Windows.
 
 \- download ubuntu [http://releases.ubuntu.com/xenial/ubuntu-16.04.2-desktop-amd64.iso][ubuntu]  
 
-(Note that the glacier document shows this as 16.04.1, when I did it this version was not available. Use the latest!)
+(Note that the glacier document shows this as 16.04.1 but when I did it this version was not available. Use the latest!)
 
 \- verify its integrity
 
@@ -65,7 +65,7 @@ $ hdiutil convert ubuntu-16.04.2-desktop-amd64.iso -format UDRW -o ubuntu-16.04.
 
 `$ diskutil list `
 
-You should now see your usb listed as an additional drive that wasn't there before. The device identifier ​is the part that comes before `(external, physical)` ​(for example `/dev/disk2`) ​
+You should now see your usb listed as an additional drive that wasn't there before. Note that the device identifier ​is the part that comes before `(external, physical)` ​(for example `/dev/disk2`) ​
 
 \- unmount the usb
 
@@ -91,7 +91,7 @@ After the process has completed you'll get an error saying the disk is not recog
 
 ### e. boot into the "online" Ubuntu system
 
-\- shut down your regular computer
+\- shut down your regular computer  
 \- plug the "online" usb drive into your regular computer  
 \- turn on your regular computer  
 \- hold down the option key  
@@ -123,7 +123,7 @@ Again, the output should match what's listed in [http://releases.ubuntu.com/xeni
 
 ### h. create the "offline apps" drive
 
-You should still be in the "online" Ubuntu system, but if you're not then complete [section e](#e-boot-into-the-online-system) again.
+You should still be in the "online" Ubuntu system, but if you're not then complete [section e](#e-boot-into-the-"online"-Ubuntu-system) again.
 
 # download apt-get dependencies
 
@@ -143,8 +143,8 @@ $ sudo apt-get update
 $ sudo apt-get install qrencode zbar-tools python-mnemonic python-qt4 python-pip
 {% endhighlight %}
 
-`qrencode` - used to encode QR codes into text  
-`zbar-tools` - this library contains the zbarcam command, used to decode QR codes from text  
+`qrencode` - used to create QR codes from text (encoding text into QR codes)  
+`zbar-tools` - this library contains the zbarcam command, used to read text from QR codes (decoding text from QR codes)  
 `python-mnemonic` - used to find the 24th word to satisfy the BIP39 checksum, in the findlastword.py script  
 `python-qt4`, `python-pip` - electrum dependencies  
 
@@ -212,7 +212,7 @@ In order to satisfy the BIP39 checksum, we must choose a suitable last word. We 
 
 `$ wget https://raw.githubusercontent.com/apples0/blog/master/findlastword.py`
 
-# copy all of this junk to the offline apps usb
+# copy all of this junk to the "offline apps" usb drive
 
 you should now have the folders `apps`, `electrum`, `bip39` and the file `findlastword.py` in the offline apps drive
 
