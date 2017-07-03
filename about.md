@@ -9,7 +9,7 @@ If this post helped you, please consider helping a brother out. Thank you
 144wii2EnV7qkjjbAUsRdXPeGfvTYtExXE
 
 <p align="center">
-  <img src="https://github.com/apples0/blog/raw/master/donation.png" alt="donation"/>
+  <img src="https://github.com/apples0/blog/raw/master/donation.png" alt="donation" width="300"/>
 </p>
 
 144wii2EnV7qkjjbAUsRdXPeGfvTYtExXE
