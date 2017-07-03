@@ -1,11 +1,11 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: help me im poor
+permalink: /help/
 ---
 
-apples0.
+If this post helped you, please consider helping a brother out. Thank you
 
-apples0.
-
-apples0.
+<p align="center">
+  <img src="https://github.com/apples0/blog/raw/master/donation.png" alt="donation"/>
+</p>
